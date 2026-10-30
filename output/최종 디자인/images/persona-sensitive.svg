@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 112" role="img" aria-label="환절기 민감러: 봄 잎과 겨울 눈 사이에서 볼이 붉어지는 여성 라인 아이콘"><title>환절기 민감러: 봄 잎과 겨울 눈 사이에서 볼이 붉어지는 여성 라인 아이콘</title><style>
+.k,.s,.i{fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.k{stroke:#000}.s{stroke:#0064d4}.i{stroke:#4d7508}.sf{fill:#0064d4}.if{fill:#4d7508}
+.thick{stroke-width:5}.dash{stroke-dasharray:6 6}.zr{fill:none;stroke:#000;stroke-width:1.5}
+.z-s .zr{stroke:#0064d4}.z-i .zr{stroke:#4d7508}
+text{font-family:"Pretendard Variable",Pretendard,"Noto Sans KR",sans-serif;fill:#000}
+.t{font-size:15px;font-weight:700}.sm{font-size:12px}.big{font-size:26px;font-weight:900}
+.zn{font-size:20px;font-weight:900}.on{fill:#fff;font-size:11px;font-weight:700}
+.ts{fill:#0064d4}.ti{fill:#4d7508}
+</style>
+<path class="k" d="M36 60 Q34 18 60 18 Q86 18 84 60 L86 94 M36 60 L34 94"/>
+<ellipse class="k" cx="60" cy="58" rx="20" ry="25"/>
+<path class="k" d="M51 54 Q54 51 57 54 M63 54 Q66 51 69 54 M56 72 Q60 75 64 72"/>
+<path class="s" d="M44 64 L48 62 M45 68 L49 66"/>
+<path class="i" d="M71 62 L75 64 M71 66 L75 68"/>
+<path class="k" d="M30 108 Q60 92 90 108"/>
+<g class="leaf"><path class="s" d="M6 36 Q16 20 30 28 Q20 44 6 36 Z M6 36 L30 28"/></g>
+<g class="snow"><path class="i" d="M102 16 V36 M93.3 21 L110.7 31 M93.3 31 L110.7 21"/></g>
+</svg>

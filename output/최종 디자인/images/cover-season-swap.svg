@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 240" role="img" aria-label="옷장의 봄 옷과 겨울 패딩을 바꾸듯, 가벼운 수딩 로션에서 두꺼운 인텐시브 크림으로 바꾸는 시즌 교체 일러스트"><title>옷장의 봄 옷과 겨울 패딩을 바꾸듯, 가벼운 수딩 로션에서 두꺼운 인텐시브 크림으로 바꾸는 시즌 교체 일러스트</title><style>
+.k,.s,.i{fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.k{stroke:#000}.s{stroke:#0064d4}.i{stroke:#4d7508}.sf{fill:#0064d4}.if{fill:#4d7508}
+.thick{stroke-width:5}.dash{stroke-dasharray:6 6}.zr{fill:none;stroke:#000;stroke-width:1.5}
+.z-s .zr{stroke:#0064d4}.z-i .zr{stroke:#4d7508}
+text{font-family:"Pretendard Variable",Pretendard,"Noto Sans KR",sans-serif;fill:#000}
+.t{font-size:15px;font-weight:700}.sm{font-size:12px}.big{font-size:26px;font-weight:900}
+.zn{font-size:20px;font-weight:900}.on{fill:#fff;font-size:11px;font-weight:700}
+.ts{fill:#0064d4}.ti{fill:#4d7508}
+</style>
+<g class="lay-back">
+<path class="k" d="M16 36 H178 M22 36 V28 M172 36 V28"/>
+<g class="hang hang-a"><path class="k" d="M64 36 V46 M40 60 L64 46 L88 60"/>
+<path class="s" d="M42 60 L28 80 L40 88 L44 80 V132 H84 V80 L88 88 L100 80 L86 60 Q64 70 42 60 Z"/></g>
+<g class="hang hang-b"><path class="k" d="M132 36 V46 M108 60 L132 46 L156 60"/>
+<path class="i" d="M110 60 L98 92 L110 98 L112 90 V156 H152 V90 L154 98 L166 92 L154 60 Q132 72 110 60 Z"/>
+<path class="i" d="M112 104 H152 M112 120 H152 M112 138 H152 M132 68 V156"/></g>
+</g>
+<g class="lay-mid"><path class="k" d="M188 120 C200 98 214 98 226 112 M216 113 L226 113 L226 103"/></g>
+<g class="lay-front">
+<g class="sun"><circle class="s" cx="262" cy="70" r="8"/><path class="s" d="M262 56 V50 M262 84 V90 M248 70 H242 M276 70 H282 M252 60 L248 56 M272 80 L276 84 M252 80 L248 84 M272 60 L276 56"/></g>
+<rect class="s" x="252" y="98" width="20" height="14" rx="2"/>
+<rect class="s" x="242" y="112" width="40" height="84" rx="8"/>
+<path class="s" d="M262 136 C256 144 254 148 254 152 A8 8 0 0 0 270 152 C270 148 268 144 262 136 Z"/>
+<g class="snow"><path class="i" d="M322 96 V124 M309.9 103 L334.1 117 M309.9 117 L334.1 103"/></g>
+<g class="lid"><rect class="i" x="294" y="138" width="56" height="14" rx="3"/></g>
+<rect class="i" x="290" y="152" width="64" height="44" rx="8"/>
+<path class="i" d="M304 168 H340 M304 178 H326"/>
+</g>
+<path class="k" d="M12 196 H348"/>
+<text class="t" x="97" y="226" text-anchor="middle">옷장</text>
+<text class="t" x="298" y="226" text-anchor="middle">크림</text>
+</svg>

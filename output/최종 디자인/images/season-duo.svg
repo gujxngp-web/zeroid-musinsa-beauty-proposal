@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 172" role="img" aria-label="계절 듀오: 3~8월 해와 가벼운 수딩 로션, 9~2월 눈과 찬바람 속 두꺼운 인텐시브 크림, 그 사이를 오가는 화살표"><title>계절 듀오: 3~8월 해와 가벼운 수딩 로션, 9~2월 눈과 찬바람 속 두꺼운 인텐시브 크림, 그 사이를 오가는 화살표</title><style>
+.k,.s,.i{fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.k{stroke:#000}.s{stroke:#0064d4}.i{stroke:#4d7508}.sf{fill:#0064d4}.if{fill:#4d7508}
+.thick{stroke-width:5}.dash{stroke-dasharray:6 6}.zr{fill:none;stroke:#000;stroke-width:1.5}
+.z-s .zr{stroke:#0064d4}.z-i .zr{stroke:#4d7508}
+text{font-family:"Pretendard Variable",Pretendard,"Noto Sans KR",sans-serif;fill:#000}
+.t{font-size:15px;font-weight:700}.sm{font-size:12px}.big{font-size:26px;font-weight:900}
+.zn{font-size:20px;font-weight:900}.on{fill:#fff;font-size:11px;font-weight:700}
+.ts{fill:#0064d4}.ti{fill:#4d7508}
+</style>
+<g class="sun"><circle class="s" cx="60" cy="56" r="14"/><path class="s" d="M60 32 V24 M60 80 V88 M36 56 H28 M84 56 H92 M43 39 L37 33 M77 73 L83 79 M43 73 L37 79 M77 39 L83 33"/></g>
+<rect class="s" x="138" y="34" width="22" height="14" rx="2"/>
+<rect class="s" x="126" y="48" width="46" height="80" rx="9"/>
+<path class="s" d="M149 74 C142 83 140 88 140 92 A9 9 0 0 0 158 92 C158 88 156 83 149 74 Z"/>
+<path class="s" d="M196 70 C192 75 191 78 191 80 A5 5 0 0 0 201 80 C201 78 200 75 196 70 Z M212 96 C209 100 208 102 208 104 A4 4 0 0 0 216 104 C216 102 215 100 212 96 Z"/>
+<path class="k" d="M20 136 H240"/>
+<g class="swap"><path class="k" d="M256 62 H304 M296 54 L304 62 L296 70 M304 96 H256 M264 88 L256 96 L264 104"/></g>
+<g class="lid"><rect class="i" x="364" y="72" width="76" height="16" rx="3"/></g>
+<rect class="i" x="358" y="88" width="88" height="48" rx="10"/>
+<path class="i" d="M374 106 H430 M374 118 H410"/>
+<path class="i" d="M466 104 H504 Q514 104 514 94 M460 120 H516"/>
+<g class="snow"><path class="i" d="M500 28 V68 M482.7 38 L517.3 58 M482.7 58 L517.3 38"/></g>
+<path class="k" d="M320 136 H540"/>
+<text class="t ts" x="130" y="164" text-anchor="middle">3~8월 수딩</text>
+<text class="t ti" x="430" y="164" text-anchor="middle">9~2월 인텐시브</text>
+</svg>

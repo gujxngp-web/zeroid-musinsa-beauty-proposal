@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 112" role="img" aria-label="봄 러너: 러닝하는 여성 라인 아이콘"><title>봄 러너: 러닝하는 여성 라인 아이콘</title><style>
+.k,.s,.i{fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.k{stroke:#000}.s{stroke:#0064d4}.i{stroke:#4d7508}.sf{fill:#0064d4}.if{fill:#4d7508}
+.thick{stroke-width:5}.dash{stroke-dasharray:6 6}.zr{fill:none;stroke:#000;stroke-width:1.5}
+.z-s .zr{stroke:#0064d4}.z-i .zr{stroke:#4d7508}
+text{font-family:"Pretendard Variable",Pretendard,"Noto Sans KR",sans-serif;fill:#000}
+.t{font-size:15px;font-weight:700}.sm{font-size:12px}.big{font-size:26px;font-weight:900}
+.zn{font-size:20px;font-weight:900}.on{fill:#fff;font-size:11px;font-weight:700}
+.ts{fill:#0064d4}.ti{fill:#4d7508}
+</style>
+<path class="s" d="M8 44 H22 M4 56 H20 M10 68 H20"/>
+<path class="k" d="M58 20 Q48 18 44 28"/>
+<circle class="k" cx="66" cy="22" r="9"/>
+<path class="k" d="M64 32 L56 62"/>
+<g class="arm-a"><path class="k" d="M62 40 L74 50 L84 44"/></g>
+<g class="arm-b"><path class="k" d="M62 40 L50 48 L44 40"/></g>
+<g class="leg-a"><path class="k" d="M56 62 L70 76 L66 96"/></g>
+<g class="leg-b"><path class="k" d="M56 62 L46 80 L32 84"/></g>
+<path class="k" d="M10 100 H110"/>
+<g class="sun"><circle class="s" cx="98" cy="22" r="7"/><path class="s" d="M98 8 V11 M98 33 V36 M84 22 H87 M109 22 H112"/></g>
+</svg>

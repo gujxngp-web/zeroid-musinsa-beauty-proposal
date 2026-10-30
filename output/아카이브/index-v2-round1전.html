@@ -1,0 +1,1476 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>제로이드 × 무신사뷰티</title>
+<meta name="description" content="제로이드 수딩×인텐시브 '계절 듀오' 무신사뷰티 입점 제안서 (2027년 봄 론칭)">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<!-- 폴백: Noto Sans KR -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  /* ================================================================
+     팔레트: 무신사 뷰티 UI(흑백·그레이) 베이스 + 제로이드 라인 컬러 포인트
+     수딩 = 봄·여름 선발(제로이드 SOOTHING 라인 블루)
+     인텐시브 = 가을·겨울 주전(제로이드 INTENSIVE 라인 올리브 그린)
+     자세한 HEX·출처·대비는 디자인-가이드.md 참고
+     ================================================================ */
+  :root {
+    /* 무신사 뷰티 베이스 */
+    --bg: #ffffff;
+    --bg-alt: #f5f5f5;
+    --ink: #000000;
+    --ink-soft: #666666;
+    --muted: #8a8a8a;          /* 비텍스트(막대·구분)용 */
+    --line: #e0e0e0;
+    --invert-bg: #000000;
+    --invert-ink: #ffffff;
+    /* 제로이드 시즌 포인트 */
+    --soothing: #0064d4;       /* 공식 SOOTHING 라인 컬러 그대로 */
+    --intensive: #4d7508;      /* 공식 INTENSIVE #588509를 AA 대비용으로 어둡게 */
+    --soothing-tint: #eef5fd;
+    --intensive-tint: #f2f6ea;
+    --on-season: #ffffff;      /* 시즌 색 배경 위 글자 */
+    /* 추정치 표시: 무신사 평점 오렌지(#fa9200) 계열을 AA용으로 어둡게 */
+    --estimate: #9a5500;
+    /* 반전 배경(검정 카드) 위에서 쓰는 값 */
+    --soothing-inv: #5aa2ff;
+    --intensive-inv: #8fbf3a;
+    --estimate-inv: #fa9200;
+    --on-season-inv: #121212;
+    --accent: var(--ink);
+    --accent-inv: var(--invert-ink);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #121212; --bg-alt: #1a1a1a; --ink: #f2f2f2; --ink-soft: #a8a8a8; --muted: #6e6e6e;
+      --line: #333333; --invert-bg: #f2f2f2; --invert-ink: #121212;
+      --soothing: #5aa2ff; --intensive: #8fbf3a; --soothing-tint: #0f1c2c; --intensive-tint: #172010;
+      --on-season: #121212; --estimate: #fa9200;
+      --soothing-inv: #0064d4; --intensive-inv: #4d7508; --estimate-inv: #9a5500; --on-season-inv: #ffffff;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #121212; --bg-alt: #1a1a1a; --ink: #f2f2f2; --ink-soft: #a8a8a8; --muted: #6e6e6e;
+    --line: #333333; --invert-bg: #f2f2f2; --invert-ink: #121212;
+    --soothing: #5aa2ff; --intensive: #8fbf3a; --soothing-tint: #0f1c2c; --intensive-tint: #172010;
+    --on-season: #121212; --estimate: #fa9200;
+    --soothing-inv: #0064d4; --intensive-inv: #4d7508; --estimate-inv: #9a5500; --on-season-inv: #ffffff;
+  }
+  /* 섹션별 시즌: 스크롤할수록 봄(수딩) → 겨울(인텐시브)로 넘어간다 */
+  .cover, #why, #what { --accent: var(--soothing); --accent-inv: var(--soothing-inv); }
+  #how, #whatif { --accent: var(--intensive); --accent-inv: var(--intensive-inv); }
+  #summary, #sources { --accent: var(--ink); --accent-inv: var(--invert-ink); }
+  /* 반전(검정) 면 안에서는 반전용 값으로 바꿔 대비를 지킨다 */
+  .invert, .cal .hl, ol.why li.real, .onepage .head {
+    --accent: var(--accent-inv); --estimate: var(--estimate-inv);
+    --soothing: var(--soothing-inv); --intensive: var(--intensive-inv); --on-season: var(--on-season-inv);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: "Pretendard Variable", Pretendard, "Noto Sans KR", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", sans-serif;
+    font-size: 16px; line-height: 1.7; word-break: keep-all; overflow-wrap: anywhere;
+  }
+  a { color: inherit; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+  section { padding: 104px 0; border-top: 1px solid var(--line); }
+  section.alt { background: var(--bg-alt); }
+
+  /* 상단 내비 */
+  nav.top {
+    position: sticky; top: 0; z-index: 10; background: var(--bg);
+    border-bottom: 2px solid var(--ink);
+  }
+  nav.top .wrap { display: flex; align-items: center; gap: 20px; height: 52px; overflow-x: auto; scrollbar-width: none; }
+  nav.top .wrap::-webkit-scrollbar { display: none; }
+  nav.top .logo { font-weight: 900; letter-spacing: 0.02em; white-space: nowrap; }
+  nav.top a { text-decoration: none; font-size: 14px; font-weight: 500; color: var(--ink-soft); white-space: nowrap; }
+  nav.top a:hover { color: var(--ink); }
+  nav.top a:focus-visible, a:focus-visible { outline: 2px solid var(--soothing); outline-offset: 2px; }
+
+  /* 타이포 */
+  .eyebrow { font-size: 13px; font-weight: 900; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin: 0 0 12px; }
+  .eyebrow::before { content: ""; display: inline-block; width: 18px; height: 3px; background: var(--accent); vertical-align: middle; margin: -2px 8px 0 0; }
+  h1 { font-size: clamp(36px, 7vw, 76px); line-height: 1.15; font-weight: 900; margin: 0 0 24px; letter-spacing: -0.03em; }
+  h2 { font-size: clamp(28px, 4.6vw, 46px); line-height: 1.25; font-weight: 900; margin: 0 0 16px; letter-spacing: -0.03em; }
+  h3 { font-size: 20px; font-weight: 700; margin: 0 0 8px; letter-spacing: -0.01em; }
+  .lead { font-size: clamp(17px, 2vw, 20px); color: var(--ink-soft); margin: 0 0 40px; max-width: 760px; }
+  .q { display: inline-block; font-size: 14px; font-weight: 700; border: 1.5px solid var(--ink); padding: 2px 10px; margin-bottom: 16px; }
+  .note { font-size: 13px; color: var(--ink-soft); }
+  .est { color: var(--estimate); font-size: 0.78em; font-weight: 700; white-space: nowrap; }
+  sup a { text-decoration: none; color: var(--accent); font-weight: 700; font-size: 11px; }
+
+  /* 표지 */
+  .cover { position: relative; padding: 120px 0 96px; border-top: 0; overflow: hidden; }
+  .season-strip { position: absolute; left: 0; right: 0; top: 0; height: 8px; display: flex; }
+  .season-strip i { flex: 1; transform-origin: left center; }
+  .season-strip i:first-child { background: var(--soothing); }
+  .season-strip i:last-child { background: var(--intensive); }
+  .cover .sub { font-size: clamp(18px, 2.4vw, 24px); font-weight: 500; margin: 0 0 48px; }
+  .cover .sub b { font-weight: 900; }
+  .duo-tag { display: inline-flex; gap: 0; margin-bottom: 32px; font-weight: 700; font-size: 14px; }
+  .duo-tag span { padding: 6px 14px; color: var(--on-season); }
+  .duo-tag .s { background: var(--soothing); }
+  .duo-tag .i { background: var(--intensive); }
+  h1 .swap {
+    /* 이미지 왼쪽 절반 = 수딩 단색, 오른쪽 절반 = 수딩→인텐시브. 정적 상태는 오른쪽 절반 */
+    background-image: linear-gradient(90deg, var(--soothing) 0 50%, var(--intensive) 100%);
+    background-repeat: no-repeat; background-size: 200% 0.14em; background-position: 100% 92%;
+    padding-bottom: 0.04em;
+  }
+
+  /* 그리드와 카드 */
+  .grid { display: grid; gap: 16px; }
+  .g2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .g3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .g4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  @media (max-width: 860px) { .g3, .g4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 560px) { .g2, .g3, .g4 { grid-template-columns: minmax(0, 1fr); } section { padding: 64px 0; } .cover { padding: 72px 0 64px; } }
+  .card { border: 1.5px solid var(--ink); padding: 24px; background: var(--bg); }
+  .card p { margin: 0; }
+  .stat .num { font-size: clamp(34px, 5vw, 48px); font-weight: 900; line-height: 1.1; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+  .stat:not(.invert) .num { color: var(--accent); }
+  .stat .num.sm { font-size: clamp(26px, 3.4vw, 34px); white-space: nowrap; }
+  .stat .lbl { font-weight: 700; margin: 8px 0 6px; }
+  .stat .so { font-size: 14px; color: var(--ink-soft); }
+  .invert { background: var(--invert-bg); color: var(--invert-ink); border-color: var(--invert-bg); }
+  .invert .so, .invert .note { color: inherit; opacity: 0.8; }
+  .stat.invert { border-top: 4px solid var(--accent); }
+
+  .key { border-left: 6px solid var(--accent); padding: 4px 0 4px 20px; font-size: clamp(19px, 2.4vw, 24px); font-weight: 700; margin: 0 0 48px; }
+  .block { margin-top: 72px; }
+  .block > h3 { font-size: 22px; margin-bottom: 20px; }
+
+  /* 가정 표시 */
+  .assume { border: 1.5px dashed var(--estimate); padding: 20px 24px; margin-top: 24px; }
+  .assume b { color: var(--estimate); }
+
+  /* 5WHY */
+  ol.why { list-style: none; padding: 0; margin: 0; counter-reset: w; }
+  ol.why li { counter-increment: w; display: grid; grid-template-columns: 72px minmax(0, 1fr); gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+  ol.why li::before { content: "WHY " counter(w); font-weight: 900; font-size: 13px; color: var(--accent); padding-top: 3px; }
+  ol.why li.real { border-bottom: 0; background: var(--invert-bg); color: var(--invert-ink); padding: 20px; margin-top: 16px; grid-template-columns: minmax(0, 1fr); border-left: 6px solid var(--accent); }
+  ol.why li.real::before { content: "REAL WHY"; color: var(--accent); }
+
+  /* 페르소나 */
+  .persona { display: flex; flex-direction: column; gap: 12px; border-top-width: 6px; }
+  .persona.p-s { border-top-color: var(--soothing); }
+  .persona.p-i { border-top-color: var(--intensive); }
+  .persona.p-d { border-image: none; border-top-color: var(--ink); position: relative; }
+  .persona.p-d::before { content: ""; position: absolute; left: -1.5px; right: -1.5px; top: -6px; height: 6px; background: linear-gradient(90deg, var(--soothing) 50%, var(--intensive) 50%); }
+  .persona .tag { font-size: 13px; font-weight: 700; color: var(--on-season); padding: 2px 10px; align-self: flex-start; }
+  .persona .tag.s { background: var(--soothing); }
+  .persona .tag.i { background: var(--intensive); }
+  .persona .tag.d { background: linear-gradient(90deg, var(--soothing), var(--intensive)); }
+  .persona .name { font-size: 22px; font-weight: 900; }
+  .persona dl { margin: 0; display: grid; grid-template-columns: 72px minmax(0, 1fr); gap: 6px 12px; font-size: 14px; }
+  .persona dt { font-weight: 700; color: var(--ink-soft); }
+  .persona dd { margin: 0; }
+  .persona .quote { font-size: 14px; border-top: 1px solid var(--line); padding-top: 12px; color: var(--ink-soft); }
+
+  /* 막대 */
+  .bars { display: flex; flex-direction: column; gap: 14px; }
+  .bar-row { display: grid; grid-template-columns: 110px minmax(0, 1fr) 96px; gap: 12px; align-items: center; font-size: 14px; }
+  .bar-track { height: 22px; background: var(--bg-alt); border: 1px solid var(--line); }
+  section.alt .bar-track { background: var(--bg); }
+  .bar-fill { height: 100%; }
+  .bar-fill.s { background: var(--soothing); }
+  .bar-fill.i { background: var(--intensive); }
+  .bar-fill.d { background: linear-gradient(90deg, var(--soothing), var(--intensive)); }
+  .bar-fill.m { background: var(--muted); }
+  .bar-val { font-weight: 700; text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  @media (max-width: 560px) { .bar-row { grid-template-columns: 84px minmax(0, 1fr) 80px; font-size: 13px; } }
+
+  /* 표 */
+  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  th, td { text-align: left; padding: 12px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  thead th { border-bottom: 2px solid var(--ink); font-size: 13px; letter-spacing: 0.04em; }
+  td.r, th.r { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+  /* 듀오 비교 */
+  .duo { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border: 1.5px solid var(--ink); }
+  .duo > div { padding: 28px 24px; }
+  .duo > div.h-s { background: var(--soothing-tint); box-shadow: inset 0 6px 0 var(--soothing); }
+  .duo > div.h-i { background: var(--intensive-tint); box-shadow: inset 0 6px 0 var(--intensive); }
+  .duo > div + div { border-left: 1.5px solid var(--ink); }
+  .duo .season { font-size: 13px; font-weight: 700; color: var(--on-season); display: inline-block; padding: 2px 10px; margin-bottom: 12px; }
+  .duo .season.s { background: var(--soothing); }
+  .duo .season.i { background: var(--intensive); }
+  .duo h3 { font-size: 26px; font-weight: 900; }
+  .duo .h-s h3 { color: var(--soothing); }
+  .duo .h-i h3 { color: var(--intensive); }
+  .duo ul { margin: 12px 0 0; padding-left: 18px; font-size: 15px; }
+  @media (max-width: 560px) { .duo { grid-template-columns: minmax(0, 1fr); } .duo > div + div { border-left: 0; border-top: 1.5px solid var(--ink); } }
+
+  /* 캘린더: 위쪽 시즌 바(준비 → 수딩 → 인텐시브)가 타임라인 역할 */
+  .cal { position: relative; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); border: 1.5px solid var(--ink); border-top-width: 0; }
+  .cal::before {
+    content: ""; position: absolute; left: -1.5px; right: -1.5px; top: -6px; height: 6px;
+    background: linear-gradient(90deg, var(--muted) 0 16.66%, var(--soothing) 16.66% 66.66%, var(--intensive) 66.66% 100%);
+    transform-origin: left center;
+  }
+  .cal > div { padding: 18px 14px; border-right: 1px solid var(--line); font-size: 14px; }
+  .cal > div:last-child { border-right: 0; }
+  .cal .m { font-weight: 900; font-size: 15px; }
+  .cal .t { font-weight: 700; margin: 6px 0; }
+  .cal .hl { background: var(--invert-bg); color: var(--invert-ink); }
+  .cal .chip { display: inline-block; font-size: 11px; font-weight: 700; color: var(--on-season); padding: 1px 6px; margin-top: 6px; }
+  .cal .chip.s { background: var(--soothing); }
+  .cal .chip.i { background: var(--intensive); }
+  @media (max-width: 860px) {
+    .cal { grid-template-columns: repeat(2, minmax(0, 1fr)); border-top-width: 1.5px; border-left-width: 0; }
+    .cal::before { left: -6px; right: auto; top: -1.5px; bottom: -1.5px; width: 6px; height: auto; transform-origin: center top;
+      background: linear-gradient(180deg, var(--soothing) 0 66.66%, var(--intensive) 66.66% 100%); }
+    .cal > div { border-bottom: 1px solid var(--line); }
+  }
+  @media (max-width: 560px) {
+    .cal { grid-template-columns: minmax(0, 1fr); }
+    .cal::before { background: linear-gradient(180deg, var(--muted) 0 16.66%, var(--soothing) 16.66% 66.66%, var(--intensive) 66.66% 100%); }
+    .cal > div { border-right: 0; }
+  }
+
+  /* 팝업 존 */
+  .zones { counter-reset: z; }
+  .zone { counter-increment: z; }
+  .zone h3::before { content: counter(z, decimal-leading-zero) " "; color: var(--accent); }
+
+  /* 한 장 요약 */
+  .onepage { border: 2px solid var(--ink); }
+  .onepage .head { position: relative; background: var(--invert-bg); color: var(--invert-ink); padding: 28px 24px 34px; }
+  .onepage .head::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 6px; background: linear-gradient(90deg, var(--soothing-inv) 50%, var(--intensive-inv) 50%); }
+  .onepage .head h2 { margin: 0 0 6px; }
+  .onepage .cells { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .onepage .cells > div { padding: 24px; border-top: 1.5px solid var(--ink); }
+  .onepage .cells > div:nth-child(odd) { border-right: 1.5px solid var(--ink); }
+  .onepage .lbl { font-size: 13px; font-weight: 900; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 8px; }
+  .onepage .cells > div:nth-child(-n+2) .lbl { color: var(--soothing); }
+  .onepage .cells > div:nth-child(n+4) .lbl { color: var(--intensive); }
+  .onepage ul { margin: 0; padding-left: 18px; }
+  .onepage .bridge { grid-column: 1 / -1; text-align: center; font-weight: 700; border-right: 0 !important; background: var(--bg-alt); }
+  @media (max-width: 560px) { .onepage .cells { grid-template-columns: minmax(0, 1fr); } .onepage .cells > div:nth-child(odd) { border-right: 0; } }
+
+  /* 출처 */
+  ol.src { font-size: 13px; color: var(--ink-soft); padding-left: 22px; }
+  ol.src li { margin-bottom: 4px; }
+  ol.src li:target { color: var(--ink); background: var(--bg-alt); outline: 2px solid var(--soothing); outline-offset: 2px; }
+  footer { padding: 40px 0 64px; font-size: 13px; color: var(--ink-soft); border-top: 2px solid var(--ink); }
+
+  /* ================================================================
+     모션 (점진적 향상)
+     - 표지 시즌 전환은 CSS만으로 동작. 끝 상태 = 정적 상태
+     - 나머지는 JS가 <html>에 .motion을 붙였을 때만 초기 상태를 숨긴다
+       (JS 꺼짐·IntersectionObserver 미지원·reduced-motion이면 처음부터 다 보임)
+     ================================================================ */
+  @media (prefers-reduced-motion: no-preference) {
+    .season-strip i:first-child { animation: grow 0.8s 0.15s cubic-bezier(.2,.7,.2,1) both; }
+    .season-strip i:last-child { animation: grow 0.8s 0.95s cubic-bezier(.2,.7,.2,1) both; }
+    .duo-tag .s { animation: tagIn 0.5s 0.2s ease-out both; }
+    .duo-tag .i { animation: tagIn 0.5s 1.0s ease-out both; }
+    h1 .swap { animation: swapLine 2.2s 0.3s cubic-bezier(.4,0,.2,1) both; }
+    @keyframes grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+    @keyframes tagIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+    /* 밑줄이 수딩색으로 그어진 뒤 인텐시브색으로 넘어간다 */
+    @keyframes swapLine {
+      0%   { background-size: 0% 0.14em; background-position: 0% 92%; }
+      45%  { background-size: 200% 0.14em; background-position: 0% 92%; }
+      60%  { background-size: 200% 0.14em; background-position: 0% 92%; }
+      100% { background-size: 200% 0.14em; background-position: 100% 92%; }
+    }
+
+    .motion .rv { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease-out, transform 0.6s cubic-bezier(.2,.7,.2,1); transition-delay: calc(var(--d, 0) * 80ms); }
+    .motion .rv.in { opacity: 1; transform: none; }
+    .motion .bar-fill { transition: width 1s cubic-bezier(.2,.7,.2,1); transition-delay: calc(var(--d, 0) * 120ms); }
+    .motion .cal::before { transform: scaleX(0); transition: transform 1.6s cubic-bezier(.4,0,.2,1); }
+    .motion .cal > div { opacity: 0; transform: translateY(10px); transition: opacity 0.45s ease-out, transform 0.45s ease-out; transition-delay: calc(var(--d, 0) * 240ms + 120ms); }
+    .motion .cal.in::before { transform: none; }
+    .motion .cal.in > div { opacity: 1; transform: none; }
+    @media (max-width: 860px) {
+      .motion .cal::before { transform: scaleY(0); }
+      .motion .cal.in::before { transform: none; }
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+  }
+  @media print {
+    .motion .rv, .motion .cal > div { opacity: 1 !important; transform: none !important; }
+    .motion .cal::before { transform: none !important; }
+  }
+
+  /* ================================================================
+     2차 디벨롭: 인터랙션 · 라인 일러스트 · 차트 · 페르소나 가치
+     - 호버 효과는 (hover: hover)에서만, 커서 추적(틸트·스포트라이트·마그네틱·패럴랙스)은
+       JS가 <html>에 .fx를 붙였을 때만(정밀 포인터 + reduced-motion 아님)
+     - 차트 상자는 Chart.js가 로드돼 .has-chart가 붙을 때만 보이고, 그 전엔 숫자 표가 보인다
+     ================================================================ */
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+  /* 스크롤 진행 바 + 현재 위치 */
+  nav.top .progress { position: absolute; left: 0; right: 0; bottom: -2px; height: 3px; pointer-events: none; }
+  nav.top .progress i { display: block; height: 100%; transform-origin: left center; transform: scaleX(var(--p, 0)); background: linear-gradient(90deg, var(--soothing), var(--intensive)); }
+  nav.top a { display: inline-block; }
+  nav.top a[aria-current="true"] { color: var(--ink); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 6px; }
+
+  /* 라인 일러스트 공통 */
+  .ill { display: block; width: 100%; height: auto; overflow: visible; }
+  .ill .k, .ill .s, .ill .i { fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .ill .k { stroke: var(--ink); }
+  .ill .s { stroke: var(--soothing); }
+  .ill .i { stroke: var(--intensive); }
+  .ill .sf { fill: var(--soothing); }
+  .ill .if { fill: var(--intensive); }
+  .ill .thick { stroke-width: 5; }
+  .ill .dash { stroke-dasharray: 6 6; }
+  .ill text { fill: var(--ink); font-family: inherit; }
+  .ill .t { font-size: 15px; font-weight: 700; }
+  .ill .sm { font-size: 12px; }
+  .ill .big { font-size: 26px; font-weight: 900; letter-spacing: -0.02em; }
+  .ill .ts { fill: var(--soothing); }
+  .ill .ti { fill: var(--intensive); }
+  .ill .on { fill: var(--on-season); font-size: 11px; font-weight: 700; }
+  .ill g { transition: transform 0.7s cubic-bezier(.3,1.4,.5,1), opacity 0.3s; }
+  figure { margin: 0; }
+
+  /* 표지 */
+  .cover-head { display: grid; grid-template-columns: minmax(0, 1fr) 260px; gap: 32px; align-items: center; }
+  .cover-art-fig { margin-bottom: 40px; }
+  @media (max-width: 860px) {
+    .cover-head { grid-template-columns: minmax(0, 1fr); gap: 0; }
+    .cover-art-fig { max-width: 280px; margin: -20px 0 40px; }
+  }
+  .cover-art .hang-a { transform-origin: 64px 36px; }
+  .cover-art .hang-b { transform-origin: 132px 36px; }
+  .cover-art .lid { transform-origin: 294px 152px; }
+  .cover-art .sun { transform-origin: 262px 70px; }
+  .cover-art .snow { transform-origin: 322px 110px; }
+  .fx .cover-art .lay-back { transform: translate(calc(var(--px, 0) * -5px), calc(var(--py, 0) * -3px)); }
+  .fx .cover-art .lay-mid { transform: translate(calc(var(--px, 0) * 2px), 0); }
+  .fx .cover-art .lay-front { transform: translate(calc(var(--px, 0) * 6px), calc(var(--py, 0) * 4px)); }
+
+  /* 페르소나: 아이콘 + 지속 소비 가치 */
+  .persona.p-s { --pc: var(--soothing); }
+  .persona.p-i { --pc: var(--intensive); }
+  .persona.p-d { --pc: var(--ink); }
+  .persona .p-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+  .persona .p-icon { width: 84px; flex: none; margin: -8px -4px -16px 0; }
+  .persona .p-icon .leg-a, .persona .p-icon .leg-b { transform-origin: 56px 62px; }
+  .persona .p-icon .arm-a, .persona .p-icon .arm-b { transform-origin: 62px 40px; }
+  .persona .p-icon .sun { transform-origin: 98px 22px; }
+  .persona .p-icon .pole { transform-origin: 56px 38px; }
+  .persona .p-icon .snow { transform-origin: 100px 22px; }
+  .persona .p-icon .leaf { transform-origin: 18px 32px; }
+  .pv { border-top: 1.5px solid var(--ink); padding-top: 14px; margin-top: 4px; display: flex; flex-direction: column; gap: 8px; }
+  .pv p { margin: 0; }
+  .pv-h { font-size: 13px; font-weight: 900; letter-spacing: 0.04em; }
+  .pv-ev { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 10px; }
+  .pv-num { font-size: clamp(28px, 3.2vw, 34px); font-weight: 900; line-height: 1.1; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; color: var(--pc); }
+  .pv-x { font-size: 13px; font-weight: 700; color: var(--on-season); background: var(--pc); padding: 1px 8px; }
+  .persona.p-d .pv-x { background: linear-gradient(90deg, var(--soothing), var(--intensive)); }
+  .pv-meta { font-size: 13px; color: var(--ink-soft); }
+  .pv-box { height: 176px; }
+  table.pv-t { font-size: 13px; }
+  .pv-t th, .pv-t td { padding: 6px 4px; }
+  .pv-t thead th { font-size: 12px; }
+  .pv-t tr.base td { font-weight: 700; }
+  .pv-th { font-size: 13px; font-weight: 700; margin-top: 4px !important; }
+  .pv-th .note { font-weight: 400; font-size: 12px; }
+  .pv-time { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 3px; font-size: 12px; line-height: 1.35; }
+  .pv-time li { padding: 6px 6px 7px; border-top: 4px solid var(--muted); background: var(--bg-alt); color: var(--ink-soft); }
+  .pv-time li b { display: block; font-size: 11px; font-weight: 700; color: var(--ink-soft); margin-bottom: 2px; }
+  .pv-time li.s { border-top-color: var(--soothing); }
+  .pv-time li.i { border-top-color: var(--intensive); }
+  .pv-time li.d { border-top-color: transparent; background: linear-gradient(90deg, var(--soothing), var(--intensive)) top / 100% 4px no-repeat border-box, var(--bg-alt); }
+  .pv-time li.off { border-top-color: var(--line); }
+  .pv-time li.buy { color: var(--ink); font-weight: 700; }
+  .pv-compare { margin-top: 16px; }
+  .legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 13px; color: var(--ink-soft); margin-bottom: 8px; }
+  .legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .sw { display: inline-block; width: 14px; height: 10px; flex: none; }
+  .sw.m { background: var(--muted); }
+  .sw.solid { background: linear-gradient(90deg, var(--soothing) 0 33%, var(--intensive) 33% 66%, var(--ink) 66%); }
+  .sw.line { border: 2px solid var(--ink-soft); }
+  .sw.s { background: var(--soothing); }
+  .sw.i { background: var(--intensive); }
+
+  /* 차트 */
+  .chart-row { margin-top: 16px; }
+  .chart-fig { border: 1.5px solid var(--ink); background: var(--bg); padding: 20px 20px 16px; min-width: 0; }
+  .chart-fig figcaption { font-size: 14px; font-weight: 700; margin-bottom: 10px; line-height: 1.45; }
+  .chart-fig .src { font-size: 12px; color: var(--ink-soft); margin: 8px 0 0; }
+  .chart-box { position: relative; display: none; }
+  .has-chart .chart-box { display: block; }
+  .chart-data table { font-size: 14px; }
+  .chart-data caption { text-align: left; font-size: 12px; color: var(--ink-soft); padding-bottom: 6px; }
+  .has-chart .chart-data { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+  .has-chart .chart-off .chart-data { position: static; width: auto; height: auto; margin: 0; overflow: visible; clip: auto; white-space: normal; }
+
+  /* 5WHY 흐름도 */
+  .why-flow { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; margin: 0 0 24px; }
+  .wf { position: relative; display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; }
+  .wf .box { width: 60px; height: 60px; display: grid; place-items: center; border: 1.5px solid var(--ink); background: var(--bg); transition: transform 0.35s cubic-bezier(.2,.7,.2,1), box-shadow 0.35s; }
+  .wf .box .ill { width: 40px; }
+  .wf .wl { font-size: 12px; font-weight: 700; line-height: 1.35; }
+  .wf:not(:last-child)::after { content: ""; position: absolute; top: 30px; left: calc(50% + 38px); right: calc(-50% + 34px); border-top: 1.5px dashed var(--ink-soft); }
+  .wf.real .box { background: var(--invert-bg); border-color: var(--invert-bg); }
+  .wf.real .ill .k { stroke: var(--invert-ink); }
+  .wf.real .ill .sf { fill: var(--soothing-inv); }
+  .wf.real .ill .if { fill: var(--intensive-inv); }
+  .wf.on .box { transform: translateY(-4px); box-shadow: 0 6px 0 -2px var(--accent); }
+  ol.why li > div { transition: transform 0.35s cubic-bezier(.2,.7,.2,1); }
+  ol.why li.on > div { transform: translateX(6px); }
+  ol.why li.on::before { color: var(--ink); }
+  ol.why li.real.on::before { color: var(--accent); }
+  @media (max-width: 560px) {
+    .why-flow { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 16px; }
+    .wf:nth-child(3)::after { display: none; }
+  }
+
+  /* 듀오 일러스트 */
+  .duo-art-fig { max-width: 620px; margin: 0 0 20px; }
+  .duo-art .sun { transform-origin: 60px 56px; }
+  .duo-art .snow { transform-origin: 500px 48px; }
+  .duo-art .lid { transform-origin: 364px 88px; }
+
+  /* 캘린더 시즌 휠 */
+  .cal-intro { display: flex; align-items: center; gap: 20px; margin: 0 0 20px; }
+  .wheel-fig { width: 128px; flex: none; }
+  .wheel .wm { transition: opacity 0.3s; }
+  .wheel.focus .wm:not(.on) { opacity: 0.22; }
+  .cal-legend { list-style: none; margin: 0; padding: 0; font-size: 14px; font-weight: 700; display: grid; gap: 6px; }
+  .cal-legend li { display: flex; align-items: center; gap: 8px; }
+
+  /* 팝업 존 배치도 */
+  .zone-fig { max-width: 600px; margin: 0 0 20px; }
+  .zone-fig figcaption { margin-top: 6px; }
+  .zone-map .zr { fill: transparent; stroke: var(--ink); stroke-width: 1.5; transition: fill 0.3s; }
+  .zone-map .z-s .zr { stroke: var(--soothing); }
+  .zone-map .z-i .zr { stroke: var(--intensive); }
+  .zone-map .t { font-size: 17px; }
+  .zone-map .zn { font-size: 20px; font-weight: 900; fill: var(--accent); }
+  .zone-map .zm.on .zr { fill: color-mix(in srgb, var(--accent) 16%, transparent); }
+  .zone { transition: box-shadow 0.3s; }
+  .zone.on { box-shadow: inset 0 0 0 2px var(--accent); }
+
+  /* ---- 호버 반응 (마우스가 있는 기기만) ---- */
+  @media (hover: hover) {
+    nav.top a { transition: transform 0.35s cubic-bezier(.2,.7,.2,1), color 0.2s; }
+    .cover-art:hover .hang-a { transform: rotate(-7deg); }
+    .cover-art:hover .hang-b { transform: rotate(6deg); }
+    .cover-art:hover .lid { transform: translate(0, -10px) rotate(-8deg); }
+    .cover-art:hover .sun { transform: rotate(45deg); }
+    .cover-art:hover .snow { transform: rotate(60deg); }
+    .persona:hover .p-icon .leg-a { transform: rotate(16deg); }
+    .persona:hover .p-icon .leg-b { transform: rotate(-12deg); }
+    .persona:hover .p-icon .arm-a { transform: rotate(-14deg); }
+    .persona:hover .p-icon .arm-b { transform: rotate(14deg); }
+    .persona:hover .p-icon .sun { transform: rotate(45deg); }
+    .persona:hover .p-icon .pole { transform: rotate(-10deg); }
+    .persona:hover .p-icon .snow { transform: rotate(60deg); }
+    .persona:hover .p-icon .leaf { transform: rotate(-24deg); }
+    .wf:hover .box { transform: translateY(-4px); box-shadow: 0 6px 0 -2px var(--accent); }
+    .duo-art-fig:hover .sun { transform: rotate(45deg); }
+    .duo-art-fig:hover .snow { transform: rotate(60deg); }
+    .duo-art-fig:hover .lid { transform: translate(0, -10px) rotate(-6deg); }
+    .duo-art-fig:hover .swap { transform: translate(4px, 0); }
+  }
+
+  /* ---- 커서 추적: 스포트라이트 (JS가 --mx/--my를 넣는다) ---- */
+  .card, .duo > div { position: relative; }
+  .fx .card::after, .fx .duo > div::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity 0.35s;
+    background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 50%), color-mix(in srgb, var(--accent) 16%, transparent), transparent 70%);
+  }
+  .fx .card:hover::after, .fx .duo > div:hover::after { opacity: 1; }
+  .fx .card.persona::after { background: radial-gradient(300px circle at var(--mx, 50%) var(--my, 50%), color-mix(in srgb, var(--pc) 10%, transparent), transparent 70%); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ill g, .wf .box, ol.why li > div { transform: none !important; }
+  }
+  @media print {
+    .chart-box { display: none !important; }
+    .has-chart .chart-data { position: static; width: auto; height: auto; margin: 0; overflow: visible; clip: auto; white-space: normal; }
+  }
+  /* 차트·표가 좁은 화면에서 부모 폭을 넘지 않게 */
+  .grid > *, .chart-fig, .chart-box, .chart-data { min-width: 0; max-width: 100%; }
+  .chart-box canvas { max-width: 100%; }
+  .chart-data { overflow-x: auto; }
+  /* 작은 휴대폰(320px)에서 표가 넘치지 않게 */
+  @media (max-width: 360px) {
+    .card { padding: 18px 14px; }
+    table { font-size: 13px; }
+    th, td { padding: 10px 6px; }
+    td.r, th.r { white-space: normal; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="top" aria-label="섹션 이동">
+  <div class="wrap">
+    <span class="logo">ZEROID × MUSINSA BEAUTY</span>
+    <a href="#why">WHY</a>
+    <a href="#what">WHAT</a>
+    <a href="#how">HOW</a>
+    <a href="#whatif">WHAT IF</a>
+    <a href="#summary">한 장 요약</a>
+    <a href="#sources">출처</a>
+  </div>
+  <div class="progress" aria-hidden="true"><i></i></div>
+</nav>
+
+<!-- 표지 / Executive Summary -->
+<header class="cover">
+  <div class="season-strip" aria-hidden="true"><i></i><i></i></div>
+  <div class="wrap">
+    <div class="cover-head">
+      <div class="cover-text">
+    <p class="eyebrow">무신사뷰티 입점 제안 · 2027 S/S</p>
+    <div class="duo-tag"><span class="s">봄엔 수딩</span><span class="i">겨울엔 인텐시브</span></div>
+    <h1>옷장만 바꾸지 말고,<br><span class="swap">크림도 바꾸세요.</span></h1>
+    <p class="sub">제로이드 <b>수딩 × 인텐시브 ‘계절 듀오’</b>, 2027년 3월 무신사뷰티 입점 제안</p>
+      </div>
+      <figure class="cover-art-fig"><svg class="ill cover-art" viewBox="0 0 360 240" role="img" aria-label="옷장의 봄 옷과 겨울 패딩을 바꾸듯, 가벼운 수딩 로션에서 두꺼운 인텐시브 크림으로 바꾸는 시즌 교체 일러스트">
+<g class="lay-back">
+<path class="k" d="M16 36 H178 M22 36 V28 M172 36 V28"/>
+<g class="hang hang-a"><path class="k" d="M64 36 V46 M40 60 L64 46 L88 60"/>
+<path class="s" d="M42 60 L28 80 L40 88 L44 80 V132 H84 V80 L88 88 L100 80 L86 60 Q64 70 42 60 Z"/></g>
+<g class="hang hang-b"><path class="k" d="M132 36 V46 M108 60 L132 46 L156 60"/>
+<path class="i" d="M110 60 L98 92 L110 98 L112 90 V156 H152 V90 L154 98 L166 92 L154 60 Q132 72 110 60 Z"/>
+<path class="i" d="M112 104 H152 M112 120 H152 M112 138 H152 M132 68 V156"/></g>
+</g>
+<g class="lay-mid"><path class="k" d="M188 120 C200 98 214 98 226 112 M216 113 L226 113 L226 103"/></g>
+<g class="lay-front">
+<g class="sun"><circle class="s" cx="262" cy="70" r="8"/><path class="s" d="M262 56 V50 M262 84 V90 M248 70 H242 M276 70 H282 M252 60 L248 56 M272 80 L276 84 M252 80 L248 84 M272 60 L276 56"/></g>
+<rect class="s" x="252" y="98" width="20" height="14" rx="2"/>
+<rect class="s" x="242" y="112" width="40" height="84" rx="8"/>
+<path class="s" d="M262 136 C256 144 254 148 254 152 A8 8 0 0 0 270 152 C270 148 268 144 262 136 Z"/>
+<g class="snow"><path class="i" d="M322 96 V124 M309.9 103 L334.1 117 M309.9 117 L334.1 103"/></g>
+<g class="lid"><rect class="i" x="294" y="138" width="56" height="14" rx="3"/></g>
+<rect class="i" x="290" y="152" width="64" height="44" rx="8"/>
+<path class="i" d="M304 168 H340 M304 178 H326"/>
+</g>
+<path class="k" d="M12 196 H348"/>
+<text class="t" x="97" y="226" text-anchor="middle">옷장</text>
+<text class="t" x="298" y="226" text-anchor="middle">크림</text>
+</svg></figure>
+    </div>
+
+    <div class="grid g3">
+      <div class="card"><h3>1. 몰 정식 입점</h3><p>더모 코스메틱 카테고리에 ‘계절 듀오 세트’와 시즌 기획세트로 입점합니다.</p></div>
+      <div class="card"><h3>2. 시즌 운영 캘린더</h3><p>3월 봄 시즌 오픈, 9~10월 시즌 교체. 패션처럼 1년에 두 번 고객이 다시 옵니다.</p></div>
+      <div class="card"><h3>3. 4~5월 오프라인 팝업</h3><p>무신사 메가스토어 성수 ‘제로이드 시즌 교체소’. 아웃도어 고객을 더마로 잇습니다.</p></div>
+    </div>
+
+    <div class="grid g3" style="margin-top:16px">
+      <div class="card invert stat">
+        <div class="num">83.1%</div>
+        <div class="lbl">무신사 뷰티 첫 구매 고객 중 패션 고객<sup><a href="#s4">4</a></sup></div>
+        <div class="so">고객은 이미 넘어왔습니다. 남은 과제는 그 고객이 다시 오게 하는 것입니다.</div>
+      </div>
+      <div class="card invert stat">
+        <div class="num">16개</div>
+        <div class="lbl">무신사 더모 코스메틱 입점 브랜드<sup><a href="#s6">6</a></sup></div>
+        <div class="so">뷰티 2,188개 브랜드 중 0.7%. 수요에 비해 진열대가 얇고, 제로이드는 아직 없습니다.</div>
+      </div>
+      <div class="card invert stat">
+        <div class="num">+35%</div>
+        <div class="lbl">재구매가 첫 구매 거래액에 더하는 몫 <span class="est">(추정)</span></div>
+        <div class="so">시즌 교체 재구매로 신규 고객 1명의 연간 가치가 34,640원에서 46,595원이 됩니다(거래액 기준).</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- WHY -->
+<section id="why" class="alt">
+  <div class="wrap">
+    <p class="eyebrow">01 · Why</p>
+    <span class="q">MD의 질문: 왜 지금 제로이드인가?</span>
+    <h2>패션 고객은 이미 뷰티로 넘어왔다.<br>이제 다시 오게 할 차례다.</h2>
+    <p class="lead">더마는 스킨케어에서 가장 빨리 크는 영역이고, 무신사 뷰티 고객은 패션 고객입니다. 그리고 그 고객은 지금 밖으로 나가고 있습니다.</p>
+
+    <div class="grid g4">
+      <div class="card stat">
+        <div class="num">2배</div>
+        <div class="lbl">국내 더마 시장 5년 성장<sup><a href="#s1">1</a></sup></div>
+        <div class="so">2020년 7,893억 원 → 2025년 1조 5,557억 원. 연평균 14.5%로 커졌습니다.</div>
+      </div>
+      <div class="card stat">
+        <div class="num">15.7%</div>
+        <div class="lbl">더마 스킨케어 연평균 성장<sup><a href="#s1">1</a></sup></div>
+        <div class="so">스킨케어 전체는 2.1%. 스킨케어의 성장은 더마가 만들고 있습니다.</div>
+      </div>
+      <div class="card stat">
+        <div class="num">+193%</div>
+        <div class="lbl">무신사 에스트라 거래액(2026.1~8)<sup><a href="#s5">5</a></sup></div>
+        <div class="so">일리윤 +289%. 무신사 안에서도 더마 수요는 이미 증명됐습니다.</div>
+      </div>
+      <div class="card stat">
+        <div class="num">+262%</div>
+        <div class="lbl">무신사 ‘러닝’ 검색(2026.1.1~19)<sup><a href="#s8">8</a></sup></div>
+        <div class="so">러닝화 판매도 2025년 +83%<sup><a href="#s9">9</a></sup>. 무신사 고객은 밖으로 나가고 있습니다.</div>
+      </div>
+    </div>
+
+    <div class="grid g3 chart-row">
+      <figure class="chart-fig "><figcaption>국내 더마 시장 규모 (억 원)</figcaption><div class="chart-box" style="height:190px"><canvas data-chart="market" role="img" aria-label="국내 더마 시장 규모: 2020년 7,893억 원, 2025년 1조 5,557억 원"></canvas></div><div class="chart-data"><table><caption>국내 더마 시장 규모: 2020년 7,893억 원, 2025년 1조 5,557억 원</caption><tbody><tr><th scope="row">2020년</th><td class="r">7,893억 원</td></tr><tr><th scope="row">2025년</th><td class="r">1조 5,557억 원</td></tr></tbody></table></div><p class="src">출처<sup><a href="#s1">1</a></sup> · 유로모니터 인용</p></figure>
+      <figure class="chart-fig "><figcaption>연평균 성장률: 더마 스킨케어 vs 스킨케어 전체</figcaption><div class="chart-box" style="height:190px"><canvas data-chart="growth" role="img" aria-label="연평균 성장률: 더마 스킨케어 15.7%, 스킨케어 전체 2.1%"></canvas></div><div class="chart-data"><table><caption>연평균 성장률: 더마 스킨케어 15.7%, 스킨케어 전체 2.1%</caption><tbody><tr><th scope="row">더마 스킨케어</th><td class="r">15.7%</td></tr><tr><th scope="row">스킨케어 전체</th><td class="r">2.1%</td></tr></tbody></table></div><p class="src">출처<sup><a href="#s1">1</a></sup></p></figure>
+      <figure class="chart-fig "><figcaption>무신사 더마 브랜드 거래액 증가율 (2026.1~8, 전년 대비)</figcaption><div class="chart-box" style="height:190px"><canvas data-chart="msderma" role="img" aria-label="무신사 더마 브랜드 거래액 증가율(2026.1~8, 전년 대비): 에스트라 +193%, 일리윤 +289%"></canvas></div><div class="chart-data"><table><caption>무신사 더마 브랜드 거래액 증가율(2026.1~8, 전년 대비): 에스트라 +193%, 일리윤 +289%</caption><tbody><tr><th scope="row">에스트라</th><td class="r">+193%</td></tr><tr><th scope="row">일리윤</th><td class="r">+289%</td></tr></tbody></table></div><p class="src">출처<sup><a href="#s5">5</a></sup></p></figure>
+    </div>
+
+    <div class="grid g3" style="margin-top:16px">
+      <div class="card">
+        <h3>2030의 생활체육</h3>
+        <p>20대 65.2%, 30대 67.8%가 생활체육에 참여합니다. 등산 참여는 1년 새 +5.0%p로 종목 중 가장 많이 늘었습니다.<sup><a href="#s7">7</a></sup> 캠핑 이용자는 2021년 기준 523만 명입니다.<sup><a href="#s10">10</a></sup></p>
+      </div>
+      <div class="card">
+        <h3>오프라인 뷰티의 2030 여성</h3>
+        <p>무신사 뷰티 홍대 매장은 오픈 3일 만에 매출 2억 5천만 원을 냈고, 구매자는 여성 76%, 2030이 80% 이상이었습니다(홍대 매장 오픈 3일 기준).<sup><a href="#s11">11</a></sup></p>
+      </div>
+      <div class="card">
+        <h3>더마 전용 공간 경쟁</h3>
+        <p>무신사는 2026년 10월 ‘더모 코스메틱’ 카테고리를 만들었고,<sup><a href="#s6">6</a></sup> 올리브영도 2026년 봄 ‘어드밴스드 더마’를 신설했습니다.<sup><a href="#s2">2</a></sup> 유통이 더마 진열대를 넓히고 있습니다.</p>
+      </div>
+    </div>
+
+    <div class="assume">
+      <b>가정</b> · 밖에 있는 시간이 길수록, 계절은 피부에 먼저 옵니다. 이 제안서는 야외활동을 ‘건조·찬바람·열감·땀이 겹치는 환경’으로 정의합니다. 자외선·땀·바람은 피부 부담을 키웁니다. 다만 제로이드 리뷰 가운데 운동·야외활동을 직접 말한 리뷰는 거의 없습니다. 그래서 야외활동 고객과 제로이드의 연결은 시장 자료와 계절 리뷰를 잇는 <b>가정</b>입니다.
+    </div>
+
+    <div class="block">
+      <h3>5WHY: 무신사가 제로이드를 원할 진짜 이유</h3>
+      <div class="why-flow" role="img" aria-label="5WHY 흐름: 더모 코스메틱 진열대 16개, 더마 성장, 재방문 숙제, 시즌 리듬, 제로이드, 시즌 운영형 더마"><div class="wf" data-i="0"><span class="box"><svg class="ill" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path class="k" d="M8 14 H40 M8 26 H40 M8 38 H40 M8 6 V42 M40 6 V42"/><rect class="s" x="13" y="17" width="6" height="9"/><rect class="s" x="22" y="29" width="6" height="9"/></svg></span><span class="wl">진열대 16개</span></div><div class="wf" data-i="1"><span class="box"><svg class="ill" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path class="k" d="M6 42 H42 M6 6 V42"/><path class="s" d="M10 34 L20 26 L28 30 L40 14 M32 14 H40 V22"/></svg></span><span class="wl">더마 성장</span></div><div class="wf" data-i="2"><span class="box"><svg class="ill" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path class="k" d="M37 28 A14 14 0 1 1 33 14"/><path class="s" d="M26 8 L34 14 L27 21"/><circle class="k" cx="24" cy="26" r="3"/></svg></span><span class="wl">재방문 숙제</span></div><div class="wf" data-i="3"><span class="box"><svg class="ill" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path class="k" d="M24 18 A4 4 0 1 1 28 14 M24 18 L6 32 H42 Z"/><path class="s" d="M10 40 H22"/><path class="i" d="M26 40 H38"/></svg></span><span class="wl">시즌 리듬</span></div><div class="wf" data-i="4"><span class="box"><svg class="ill" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path class="s" d="M8 13 H20"/><rect class="s" x="6" y="18" width="16" height="22" rx="3"/><path class="i" d="M28 17 H40"/><rect class="i" x="26" y="22" width="16" height="18" rx="3"/></svg></span><span class="wl">제로이드</span></div><div class="wf real" data-i="5"><span class="box"><svg class="ill" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><rect class="k" x="7" y="10" width="34" height="30" rx="3"/><path class="k" d="M7 18 H41 M15 6 V14 M33 6 V14"/><rect class="sf" x="11" y="22" width="12" height="14"/><rect class="if" x="25" y="22" width="12" height="14"/></svg></span><span class="wl">시즌 운영형 더마</span></div></div>
+      <ol class="why">
+        <li><div><b>왜 더마 브랜드가 더 필요한가?</b> 2026년 10월 만든 더모 코스메틱 카테고리에 브랜드가 16개뿐입니다.</div></li>
+        <li><div><b>왜 지금 채워야 하나?</b> 더마는 스킨케어 성장 엔진이고(연 15.7% vs 2.1%), 무신사에서도 에스트라 +193%, 일리윤 +289%로 수요가 증명됐습니다.</div></li>
+        <li><div><b>무신사의 다음 숙제는?</b> 뷰티 첫 구매 고객의 83.1%가 패션 고객입니다. 한 번 넘어온 고객이 뷰티를 <b>다시 사러 오게</b> 만드는 것입니다.</div></li>
+        <li><div><b>어떻게 다시 오게 하나?</b> 패션 고객은 시즌마다 옷장을 바꾸러 옵니다. 뷰티에도 “시즌이 바뀌면 바꿀 이유”가 있어야 같은 리듬으로 돌아옵니다.</div></li>
+        <li><div><b>왜 제로이드인가?</b> 제로이드 고객은 이미 스스로 계절마다 라인을 바꿔 씁니다. 가벼운 수딩과 고보습 인텐시브가 한 브랜드 안에 있고, 둘 다 올리브영에서 검증됐습니다.</div></li>
+        <li class="real"><div>무신사에 필요한 것은 ‘더마 브랜드 하나’가 아니라, 패션 고객을 시즌마다 뷰티로 다시 데려올 <b>시즌 운영형 더마</b>입니다.</div></li>
+      </ol>
+    </div>
+
+    <div class="block" id="persona">
+      <h3>타깃 페르소나 3명</h3>
+      <p class="note" style="margin:-8px 0 20px">인물은 가상이며, 피부 고민과 사용 패턴은 올리브영 리뷰 분석과 시장 자료에 근거합니다. 연간 가치는 추정이며 거래액 기준입니다.</p>
+      <div class="grid g3 personas">
+        <article class="card persona p-s">
+          <div class="p-head"><span class="tag s">봄 러너 · 수딩</span><svg class="ill p-icon" viewBox="0 0 120 112" aria-hidden="true" focusable="false">
+<path class="s" d="M8 44 H22 M4 56 H20 M10 68 H20"/>
+<path class="k" d="M58 20 Q48 18 44 28"/>
+<circle class="k" cx="66" cy="22" r="9"/>
+<path class="k" d="M64 32 L56 62"/>
+<g class="arm-a"><path class="k" d="M62 40 L74 50 L84 44"/></g>
+<g class="arm-b"><path class="k" d="M62 40 L50 48 L44 40"/></g>
+<g class="leg-a"><path class="k" d="M56 62 L70 76 L66 96"/></g>
+<g class="leg-b"><path class="k" d="M56 62 L46 80 L32 84"/></g>
+<path class="k" d="M10 100 H110"/>
+<g class="sun"><circle class="s" cx="98" cy="22" r="7"/><path class="s" d="M98 8 V11 M98 33 V36 M84 22 H87 M109 22 H112"/></g>
+</svg></div>
+          <div class="name">윤서아, 29세</div>
+          <p>땀은 나는데 속은 당기는 사람</p>
+          <dl>
+            <dt>일상</dt><dd>IT 서비스 기획자. 주 2회 퇴근 후 한강 러닝 크루, 러닝캡은 무신사에서 삽니다.</dd>
+            <dt>피부</dt><dd>복합성. 달린 뒤 열감과 속당김, 무거운 크림은 답답합니다.</dd>
+            <dt>제품</dt><dd>수딩 로션·크림, 포밍 클렌저, 데일리 선크림</dd>
+            <dt>연간 구매</dt><dd><b>106,050원</b> <span class="est">(추정, 시즌 교체 1회 시 정가 기준)</span></dd>
+          </dl>
+          
+          <div class="pv">
+            <p class="pv-h">지속 소비 가치 <span class="est">(추정, 거래액 기준)</span></p>
+            <div class="pv-ev"><span class="pv-num">39,827원</span><span class="pv-x">1회 구매의 1.66배</span></div>
+            <p class="pv-meta">신규 고객 1명 기대 가치 · 재구매 확률 30% · 정가 기준 49,783원</p>
+            <div class="chart-box pv-box"><canvas data-chart="pv0" role="img" aria-label="윤서아 시나리오별 연간 무신사 거래액(추정): 첫 구매만 24,000원, 보수 (시즌 한정) 41,400원, 기본 (시즌 교체 1회) 84,840원, 낙관 (+루틴 확장) 175,744원. 신규 고객 1명 기대 가치 39,827원"></canvas></div>
+            <table class="pv-t"><caption class="sr-only">윤서아 시나리오별 연간 구매액(정가)과 무신사 거래액(할인 20% 가정), 추정</caption><thead><tr><th scope="col">시나리오</th><th scope="col" class="r">정가</th><th scope="col" class="r">거래액</th></tr></thead><tbody><tr><td>첫 구매만</td><td class="r">30,000원</td><td class="r">24,000원</td></tr><tr><td>보수 (시즌 한정)</td><td class="r">51,750원</td><td class="r">41,400원</td></tr><tr class="base"><td>기본 (시즌 교체 1회)</td><td class="r">106,050원</td><td class="r">84,840원</td></tr><tr><td>낙관 (+루틴 확장)</td><td class="r">219,680원</td><td class="r">175,744원</td></tr></tbody></table>
+            <p class="pv-th">계절별 구매 흐름 <span class="note">(굵게: 주 구매 시점)</span></p>
+            <ol class="pv-time"><li class="s buy"><b>3~5월</b>수딩 로션·크림</li><li class="s"><b>6~8월</b>수딩 + 선크림 (+핌프로브 보조)</li><li class="i"><b>9~10월</b>인텐시브 교체 후보</li><li class="i"><b>11~12월</b>인텐시브</li></ol>
+          </div>
+          <p class="quote">리뷰 경향: “보습크림은 기름져서 못 쓰는데 이건 된다”</p>
+        </article>
+        <article class="card persona p-i">
+          <div class="p-head"><span class="tag i">겨울 산행러 · 인텐시브</span><svg class="ill p-icon" viewBox="0 0 120 112" aria-hidden="true" focusable="false">
+<path class="i" d="M60 100 L84 64 L94 78 L102 68 L118 100"/>
+<path class="i" d="M64 30 H78 Q84 30 84 24 M68 40 H88"/>
+<circle class="k" cx="40" cy="24" r="9"/>
+<path class="k" d="M32 20 Q29 34 36 40"/>
+<rect class="i" x="22" y="34" width="12" height="22" rx="4"/>
+<path class="k" d="M40 33 L42 64 M41 42 L54 52"/>
+<g class="pole"><path class="k" d="M56 38 L52 100"/></g>
+<path class="k" d="M42 64 L52 80 L54 98 M42 64 L34 82 L30 98"/>
+<path class="k" d="M8 100 H116"/>
+<g class="snow"><path class="i" d="M100 12 V32 M91.3 17 L108.7 27 M91.3 27 L108.7 17"/></g>
+</svg></div>
+          <div class="name">한지수, 34세</div>
+          <p>바람 맞은 날 밤, 크림이 두꺼워지는 사람</p>
+          <dl>
+            <dt>일상</dt><dd>영업직. 가을·겨울 주말 등산과 동계 캠핑, 고프코어 아우터를 삽니다.</dd>
+            <dt>피부</dt><dd>건성. 찬바람과 난방 뒤 당김과 각질, 가벼운 로션은 부족합니다.</dd>
+            <dt>제품</dt><dd>인텐시브 크림·오인트 크림, 휴대용 크림 미스트</dd>
+            <dt>연간 구매</dt><dd><b>141,400원</b> <span class="est">(추정, 시즌 교체 1회 시 정가 기준)</span></dd>
+          </dl>
+          
+          <div class="pv">
+            <p class="pv-h">지속 소비 가치 <span class="est">(추정, 거래액 기준)</span></p>
+            <div class="pv-ev"><span class="pv-num">35,477원</span><span class="pv-x">1회 구매의 1.39배</span></div>
+            <p class="pv-meta">신규 고객 1명 기대 가치 · 재구매 확률 15% · 정가 기준 44,346원</p>
+            <div class="chart-box pv-box"><canvas data-chart="pv1" role="img" aria-label="한지수 시나리오별 연간 무신사 거래액(추정): 첫 구매만 25,600원, 보수 (시즌 한정) 57,920원, 기본 (시즌 교체 1회) 113,120원, 낙관 (+루틴 확장) 152,620원. 신규 고객 1명 기대 가치 35,477원"></canvas></div>
+            <table class="pv-t"><caption class="sr-only">한지수 시나리오별 연간 구매액(정가)과 무신사 거래액(할인 20% 가정), 추정</caption><thead><tr><th scope="col">시나리오</th><th scope="col" class="r">정가</th><th scope="col" class="r">거래액</th></tr></thead><tbody><tr><td>첫 구매만</td><td class="r">32,000원</td><td class="r">25,600원</td></tr><tr><td>보수 (시즌 한정)</td><td class="r">72,400원</td><td class="r">57,920원</td></tr><tr class="base"><td>기본 (시즌 교체 1회)</td><td class="r">141,400원</td><td class="r">113,120원</td></tr><tr><td>낙관 (+루틴 확장)</td><td class="r">190,775원</td><td class="r">152,620원</td></tr></tbody></table>
+            <p class="pv-th">계절별 구매 흐름 <span class="note">(굵게: 주 구매 시점)</span></p>
+            <ol class="pv-time"><li class="s"><b>3~5월</b>수딩 교체 후보</li><li class="off"><b>6~8월</b>(비수기)</li><li class="i buy"><b>9~10월</b>인텐시브 크림·미스트</li><li class="i buy"><b>11~12월</b>인텐시브 오인트</li></ol>
+          </div>
+          <p class="quote">리뷰 경향: “찬바람 불 때 이만한 게 없다”</p>
+        </article>
+        <article class="card persona p-d">
+          <div class="p-head"><span class="tag d">환절기 민감러 · 계절 듀오</span><svg class="ill p-icon" viewBox="0 0 120 112" aria-hidden="true" focusable="false">
+<path class="k" d="M36 60 Q34 18 60 18 Q86 18 84 60 L86 94 M36 60 L34 94"/>
+<ellipse class="k" cx="60" cy="58" rx="20" ry="25"/>
+<path class="k" d="M51 54 Q54 51 57 54 M63 54 Q66 51 69 54 M56 72 Q60 75 64 72"/>
+<path class="s" d="M44 64 L48 62 M45 68 L49 66"/>
+<path class="i" d="M71 62 L75 64 M71 66 L75 68"/>
+<path class="k" d="M30 108 Q60 92 90 108"/>
+<g class="leaf"><path class="s" d="M6 36 Q16 20 30 28 Q20 44 6 36 Z M6 36 L30 28"/></g>
+<g class="snow"><path class="i" d="M102 16 V36 M93.3 21 L110.7 31 M93.3 31 L110.7 21"/></g>
+</svg></div>
+          <div class="name">정다은, 26세</div>
+          <p>계절이 바뀌면 피부가 먼저 아는 사람</p>
+          <dl>
+            <dt>일상</dt><dd>마케팅 에이전시 주니어. 필라테스와 산책, 무신사로 옷을 사다 뷰티를 처음 샀습니다.</dd>
+            <dt>피부</dt><dd>민감·복합성. 봄·가을 환절기마다 붉어지고 당깁니다.</dd>
+            <dt>제품</dt><dd>수딩 × 인텐시브 계절 듀오</dd>
+            <dt>연간 구매</dt><dd><b>109,500원</b> <span class="est">(추정, 시즌 교체 1회 시 정가 기준)</span></dd>
+          </dl>
+          
+          <div class="pv">
+            <p class="pv-h">지속 소비 가치 <span class="est">(추정, 거래액 기준)</span></p>
+            <div class="pv-ev"><span class="pv-num">59,467원</span><span class="pv-x">1회 구매의 1.20배</span></div>
+            <p class="pv-meta">신규 고객 1명 기대 가치 · 재구매 확률 30% · 정가 기준 74,334원</p>
+            <div class="chart-box pv-box"><canvas data-chart="pv2" role="img" aria-label="정다은 시나리오별 연간 무신사 거래액(추정): 첫 구매만 49,600원, 보수 (시즌 한정) 57,040원, 기본 (시즌 교체 1회) 87,600원, 낙관 (+루틴 확장) 155,400원. 신규 고객 1명 기대 가치 59,467원"></canvas></div>
+            <table class="pv-t"><caption class="sr-only">정다은 시나리오별 연간 구매액(정가)과 무신사 거래액(할인 20% 가정), 추정</caption><thead><tr><th scope="col">시나리오</th><th scope="col" class="r">정가</th><th scope="col" class="r">거래액</th></tr></thead><tbody><tr><td>첫 구매만</td><td class="r">62,000원</td><td class="r">49,600원</td></tr><tr><td>보수 (시즌 한정)</td><td class="r">71,300원</td><td class="r">57,040원</td></tr><tr class="base"><td>기본 (시즌 교체 1회)</td><td class="r">109,500원</td><td class="r">87,600원</td></tr><tr><td>낙관 (+루틴 확장)</td><td class="r">194,250원</td><td class="r">155,400원</td></tr></tbody></table>
+            <p class="pv-th">계절별 구매 흐름 <span class="note">(굵게: 주 구매 시점)</span></p>
+            <ol class="pv-time"><li class="d buy"><b>3~5월</b>계절 듀오</li><li class="s"><b>6~8월</b>수딩</li><li class="d buy"><b>9~10월</b>계절 듀오</li><li class="i"><b>11~12월</b>인텐시브</li></ol>
+          </div>
+          <p class="quote">리뷰 경향: “한겨울엔 보습이 부족해 인텐시브로 바꾼다”</p>
+        </article>
+      </div>
+
+      <figure class="chart-fig pv-compare">
+        <figcaption>세 페르소나 비교: 첫 구매만 vs 계속 살 때 <span class="est">(추정, 무신사 거래액 기준)</span></figcaption>
+        <div class="legend" aria-hidden="true"><span><i class="sw m"></i>첫 구매만</span><span><i class="sw solid"></i>신규 고객 1명 기대 가치</span><span><i class="sw line"></i>기본 (시즌 교체 1회)</span></div>
+        <div class="chart-box" style="height:300px"><canvas data-chart="pvc" role="img" aria-label="세 페르소나 비교(추정, 무신사 거래액 기준). 봄 러너: 첫 구매만 24,000원, 기대 가치 39,827원, 기본 84,840원. 겨울 산행러: 25,600원, 35,477원, 113,120원. 환절기 민감러: 49,600원, 59,467원, 87,600원."></canvas></div>
+        <div class="chart-data"><table><caption>세 페르소나 비교(추정, 무신사 거래액 기준)</caption><thead><tr><th scope="col">페르소나</th><th scope="col" class="r">첫 구매만</th><th scope="col" class="r">기대 가치</th><th scope="col" class="r">기본</th></tr></thead><tbody>
+          <tr><th scope="row">봄 러너</th><td class="r">24,000원</td><td class="r">39,827원</td><td class="r">84,840원</td></tr>
+          <tr><th scope="row">겨울 산행러</th><td class="r">25,600원</td><td class="r">35,477원</td><td class="r">113,120원</td></tr>
+          <tr><th scope="row">환절기 민감러</th><td class="r">49,600원</td><td class="r">59,467원</td><td class="r">87,600원</td></tr>
+        </tbody></table></div>
+        <p class="src">산식: output/리포트/페르소나-재구매-수익.md</p>
+      </figure>
+      <div class="assume">
+        <b>가정</b> · 무신사 거래액 = 올리브영 정가 기준 연간 구매액 × (1 − 무신사 실결제 할인 20%). 시나리오는 첫 구매만 / 보수(자기 계절 라인만) / 기본(시즌 교체 1회) / 낙관(루틴 확장). 기대 가치 = (1 − 재구매 확률) × 첫 구매 + 재구매 확률 × (보수 50%·기본 35%·낙관 15% 가중). 12개월 재구매 확률은 봄 러너 30%, 겨울 산행러 15%, 환절기 민감러 30%. 모두 추정이며 마진이 아닌 거래액 기준입니다.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT -->
+<section id="what">
+  <div class="wrap">
+    <p class="eyebrow">02 · What</p>
+    <span class="q">MD의 질문: 그래서 제로이드는 뭐가 다른가?</span>
+    <h2>고객이 먼저 시작한 루틴.<br>여름엔 수딩, 겨울엔 인텐시브.</h2>
+    <p class="lead">우리가 만든 사용법이 아닙니다. 리뷰 속 고객이 먼저 계절마다 바꿔 썼습니다. 제로이드는 이 행동을 ‘시즌 교체’라는 운영 방식으로 바꿉니다.</p>
+
+    <p class="key">피부에도 시즌 교체가 필요하다. 한 브랜드, 두 계절, 하나의 장벽 루틴.</p>
+
+    <figure class="duo-art-fig"><svg class="ill duo-art" viewBox="0 0 560 172" role="img" aria-label="계절 듀오: 3~8월 해와 가벼운 수딩 로션, 9~2월 눈과 찬바람 속 두꺼운 인텐시브 크림, 그 사이를 오가는 화살표">
+<g class="sun"><circle class="s" cx="60" cy="56" r="14"/><path class="s" d="M60 32 V24 M60 80 V88 M36 56 H28 M84 56 H92 M43 39 L37 33 M77 73 L83 79 M43 73 L37 79 M77 39 L83 33"/></g>
+<rect class="s" x="138" y="34" width="22" height="14" rx="2"/>
+<rect class="s" x="126" y="48" width="46" height="80" rx="9"/>
+<path class="s" d="M149 74 C142 83 140 88 140 92 A9 9 0 0 0 158 92 C158 88 156 83 149 74 Z"/>
+<path class="s" d="M196 70 C192 75 191 78 191 80 A5 5 0 0 0 201 80 C201 78 200 75 196 70 Z M212 96 C209 100 208 102 208 104 A4 4 0 0 0 216 104 C216 102 215 100 212 96 Z"/>
+<path class="k" d="M20 136 H240"/>
+<g class="swap"><path class="k" d="M256 62 H304 M296 54 L304 62 L296 70 M304 96 H256 M264 88 L256 96 L264 104"/></g>
+<g class="lid"><rect class="i" x="364" y="72" width="76" height="16" rx="3"/></g>
+<rect class="i" x="358" y="88" width="88" height="48" rx="10"/>
+<path class="i" d="M374 106 H430 M374 118 H410"/>
+<path class="i" d="M466 104 H504 Q514 104 514 94 M460 120 H516"/>
+<g class="snow"><path class="i" d="M500 28 V68 M482.7 38 L517.3 58 M482.7 58 L517.3 38"/></g>
+<path class="k" d="M320 136 H540"/>
+<text class="t ts" x="130" y="164" text-anchor="middle">3~8월 수딩</text>
+<text class="t ti" x="430" y="164" text-anchor="middle">9~2월 인텐시브</text>
+</svg></figure>
+    <div class="duo">
+      <div class="h-s">
+        <span class="season s">3~8월 · 봄 시즌 선발</span>
+        <h3>수딩 라인</h3>
+        <p>건조하고 민감한 피부를 위한 저자극 라인. 피부 장벽 강화에 도움을 주는 가벼운 보습.</p>
+        <ul>
+          <li>대표: 수딩 크림 80ml 30,000원, 수딩 로션 160ml 30,000원(올리브영 정가)<sup><a href="#s12">12</a></sup></li>
+          <li>복합성·지성·건성에 고루 맞고 사계절 쓰임<sup><a href="#s13">13</a></sup></li>
+          <li>재구매 표시 리뷰 비율이 인텐시브의 약 2배</li>
+        </ul>
+      </div>
+      <div class="h-i">
+        <span class="season i">9~2월 · 가을·겨울 주전</span>
+        <h3>인텐시브 라인</h3>
+        <p>악건성·문제성 피부를 위한 고보습 장벽 케어. 찬바람 부는 계절의 두꺼운 보습.</p>
+        <ul>
+          <li>대표: 인텐시브 크림 80ml 32,000원(올리브영 정가)<sup><a href="#s12">12</a></sup></li>
+          <li>2025 올리브영 어워즈 크림 부문 MD’s PICK<sup><a href="#s12">12</a></sup></li>
+          <li>올리브영 인텐시브 크림 기획 리뷰 14,387건, 평점 4.8<sup><a href="#s13">13</a></sup></li>
+        </ul>
+      </div>
+    </div>
+    <p class="note" style="margin-top:12px">핌프로브 라인(지성·트러블 피부용 피지 조절·진정)은 땀과 피지가 많은 여름의 보조 라인으로 운영합니다.</p>
+
+    <div class="block">
+      <h3>리뷰가 보여 주는 것 <span class="note">올리브영 리뷰 분석, 2026-10-30 수집<sup><a href="#s13">13</a></sup></span></h3>
+      <div class="grid g4">
+        <div class="card stat">
+          <div class="num sm">5명 중 1명</div>
+          <div class="lbl">계절·날씨를 말하는 리뷰 (18.5%)</div>
+          <div class="so">찬바람, 환절기, 겨울, 여름. 고객은 계절로 크림을 고릅니다.</div>
+        </div>
+        <div class="card stat">
+          <div class="num">2.44 : 1</div>
+          <div class="lbl">인텐시브 리뷰의 겨울 : 여름 언급</div>
+          <div class="so">여름 언급 비율은 수딩이 인텐시브의 2배. 두 라인이 같은 고객의 다른 계절을 맡습니다.</div>
+        </div>
+        <div class="card stat">
+          <div class="num sm">19.7% · 9.2%</div>
+          <div class="lbl">재구매 표시 리뷰 비율 (수딩 · 인텐시브)</div>
+          <div class="so">재구매 신호는 수딩이 약 2배. 리뷰 작성자 기준의 상대 비교입니다.</div>
+        </div>
+        <div class="card stat">
+          <div class="num">28%</div>
+          <div class="lbl">매장에서 사고 쓴 리뷰</div>
+          <div class="so">발라 보고 사는 수요가 이미 있습니다. 무신사 오프라인 매장의 체험 동선을 채웁니다.</div>
+        </div>
+      </div>
+      <div class="grid g3 chart-row">
+        <figure class="chart-fig "><figcaption>재구매 표시 리뷰 비율 (수딩 vs 인텐시브)</figcaption><div class="chart-box" style="height:190px"><canvas data-chart="repurchase" role="img" aria-label="재구매 표시 리뷰 비율: 수딩 19.7%, 인텐시브 9.2%"></canvas></div><div class="chart-data"><table><caption>재구매 표시 리뷰 비율: 수딩 19.7%, 인텐시브 9.2%</caption><tbody><tr><th scope="row">수딩</th><td class="r">19.7%</td></tr><tr><th scope="row">인텐시브</th><td class="r">9.2%</td></tr></tbody></table></div><p class="src">올리브영 리뷰 분석<sup><a href="#s13">13</a></sup> · 라인 간 상대 비교</p></figure>
+        <figure class="chart-fig "><figcaption>계절·날씨를 말하는 리뷰</figcaption><div class="chart-box" style="height:190px"><canvas data-chart="season" role="img" aria-label="계절·날씨를 말하는 리뷰 18.5%"></canvas></div><div class="chart-data"><table><caption>계절·날씨를 말하는 리뷰 18.5%</caption><tbody><tr><th scope="row">계절·날씨 언급</th><td class="r">18.5%</td></tr></tbody></table></div><p class="src">올리브영 리뷰 분석<sup><a href="#s13">13</a></sup></p></figure>
+        <figure class="chart-fig "><figcaption>매장에서 사고 쓴 리뷰</figcaption><div class="chart-box" style="height:190px"><canvas data-chart="store" role="img" aria-label="매장에서 사고 쓴 리뷰 28%"></canvas></div><div class="chart-data"><table><caption>매장에서 사고 쓴 리뷰 28%</caption><tbody><tr><th scope="row">매장 구매 리뷰</th><td class="r">28%</td></tr></tbody></table></div><p class="src">올리브영 리뷰 분석<sup><a href="#s13">13</a></sup></p></figure>
+      </div>
+      <p class="note" style="margin-top:12px">표본이 가을(9~10월)과 올리브영 행사 기간에 수집돼 절대값보다 라인 간 비교로 읽어야 합니다.</p>
+    </div>
+
+    <div class="block">
+      <h3>피부과에서 시작해, 올리브영에서 검증된 브랜드</h3>
+      <div class="grid g3">
+        <div class="card">
+          <h3>피부과 기반 장벽 더마</h3>
+          <p>네오팜(최대주주 잇츠한불)의 더마 브랜드. 피부과·소아과·종합병원 등 병·의원 채널에서 시작했습니다.<sup><a href="#s12">12</a></sup></p>
+        </div>
+        <div class="card">
+          <h3>MLE®·디펜사마이드™</h3>
+          <p>제로이드 핵심 기술의 피부과 공동 연구, SCI 게재.<sup><a href="#s12">12</a></sup> 색소·향료·에탄올·파라벤 등 10가지 성분을 넣지 않았습니다.</p>
+        </div>
+        <div class="card">
+          <h3>무신사에는 아직 없음</h3>
+          <p>무신사·무신사뷰티 미입점(2026-10-30 확인). 같은 네오팜의 리얼베리어는 무신사에서 이미 판매 중입니다.<sup><a href="#s12">12</a></sup></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW -->
+<section id="how" class="alt">
+  <div class="wrap">
+    <p class="eyebrow">03 · How</p>
+    <span class="q">MD의 질문: 운영이 되는가?</span>
+    <h2>패션처럼 운영하는 더마.<br>시즌 오픈, 시즌 교체, 시즌 키트.</h2>
+    <p class="lead">무신사가 이미 운영하는 행사와 매장 위에 시즌 메시지를 얹습니다. 별도 대형 행사 없이 1년에 두 번, 고객이 다시 오는 구조를 만듭니다.</p>
+
+    <div class="block" style="margin-top:0">
+      <h3>몰 입점 구성</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>상품</th><th>구성</th><th class="r">정가 합계</th><th>역할</th></tr></thead>
+          <tbody>
+            <tr><td><b>계절 듀오 크림 세트</b> (히어로)</td><td>수딩 크림 80ml + 인텐시브 크림 80ml</td><td class="r">62,000원</td><td>무신사 단독 구성 제안. 상시 판매, 3월·9~10월 집중</td></tr>
+            <tr><td>봄 러너 키트</td><td>포밍 클렌저 240ml + 수딩 로션 160ml + 데일리 선크림 50ml</td><td class="r">86,000원</td><td>3~8월, 러닝·스포츠 기획전 동선</td></tr>
+            <tr><td>겨울 산행 키트</td><td>인텐시브 크림 80ml + 인텐시브 크림 미스트 100ml</td><td class="r">55,000원</td><td>10~12월, 아웃도어 기획전 동선</td></tr>
+            <tr><td>환절기 듀오 대용량</td><td>수딩 크림 80+50ml + 인텐시브 크림 80+50ml</td><td class="r">78,000원</td><td>3월·9~10월, 연간 고객용</td></tr>
+            <tr><td>여름 땀 시즌 키트</td><td>핌프로브 젤 클렌저 180ml + 레드 컨트롤 크림 80ml</td><td class="r">65,000원</td><td>6~8월, 수딩 비수기 보완</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">정가는 올리브영 정가(2026-10-30) 단순 합산입니다. 무신사 판매가·할인율·수수료·거래 형태는 협의 사항입니다. 브랜드관은 시즌마다 수딩·인텐시브 순서를 바꾸는 ‘시즌 탭’으로 구성합니다.</p>
+    </div>
+
+    <div class="block">
+      <h3>2027 시즌 캘린더</h3>
+      <div class="cal-intro"><figure class="wheel-fig"><svg class="ill wheel" viewBox="0 0 200 200" role="img" aria-label="2027 시즌 휠: 3~8월은 수딩, 9~2월은 인텐시브"><g class="wm" data-m="1"><path class="if" d="M101.5 12.0 A88 88 0 0 1 142.7 23.0 L129.1 47.5 A60 60 0 0 0 101.0 40.0 Z"/><text class="on" x="119.2" y="32.5" text-anchor="middle">1</text></g><g class="wm" data-m="2"><path class="if" d="M145.3 24.6 A88 88 0 0 1 175.4 54.7 L151.4 69.1 A60 60 0 0 0 130.9 48.6 Z"/><text class="on" x="152.3" y="51.7" text-anchor="middle">2</text></g><g class="wm" data-m="3"><path class="sf" d="M177.0 57.3 A88 88 0 0 1 188.0 98.5 L160.0 99.0 A60 60 0 0 0 152.5 70.9 Z"/><text class="on" x="171.5" y="84.8" text-anchor="middle">3</text></g><g class="wm" data-m="4"><path class="sf" d="M188.0 101.5 A88 88 0 0 1 177.0 142.7 L152.5 129.1 A60 60 0 0 0 160.0 101.0 Z"/><text class="on" x="171.5" y="123.2" text-anchor="middle">4</text></g><g class="wm" data-m="5"><path class="sf" d="M175.4 145.3 A88 88 0 0 1 145.3 175.4 L130.9 151.4 A60 60 0 0 0 151.4 130.9 Z"/><text class="on" x="152.3" y="156.3" text-anchor="middle">5</text></g><g class="wm" data-m="6"><path class="sf" d="M142.7 177.0 A88 88 0 0 1 101.5 188.0 L101.0 160.0 A60 60 0 0 0 129.1 152.5 Z"/><text class="on" x="119.2" y="175.5" text-anchor="middle">6</text></g><g class="wm" data-m="7"><path class="sf" d="M98.5 188.0 A88 88 0 0 1 57.3 177.0 L70.9 152.5 A60 60 0 0 0 99.0 160.0 Z"/><text class="on" x="80.8" y="175.5" text-anchor="middle">7</text></g><g class="wm" data-m="8"><path class="sf" d="M54.7 175.4 A88 88 0 0 1 24.6 145.3 L48.6 130.9 A60 60 0 0 0 69.1 151.4 Z"/><text class="on" x="47.7" y="156.3" text-anchor="middle">8</text></g><g class="wm" data-m="9"><path class="if" d="M23.0 142.7 A88 88 0 0 1 12.0 101.5 L40.0 101.0 A60 60 0 0 0 47.5 129.1 Z"/><text class="on" x="28.5" y="123.2" text-anchor="middle">9</text></g><g class="wm" data-m="10"><path class="if" d="M12.0 98.5 A88 88 0 0 1 23.0 57.3 L47.5 70.9 A60 60 0 0 0 40.0 99.0 Z"/><text class="on" x="28.5" y="84.8" text-anchor="middle">10</text></g><g class="wm" data-m="11"><path class="if" d="M24.6 54.7 A88 88 0 0 1 54.7 24.6 L69.1 48.6 A60 60 0 0 0 48.6 69.1 Z"/><text class="on" x="47.7" y="51.7" text-anchor="middle">11</text></g><g class="wm" data-m="12"><path class="if" d="M57.3 23.0 A88 88 0 0 1 98.5 12.0 L99.0 40.0 A60 60 0 0 0 70.9 47.5 Z"/><text class="on" x="80.8" y="32.5" text-anchor="middle">12</text></g>
+<text class="t big" x="100" y="100" text-anchor="middle">2027</text>
+<text class="t sm" x="100" y="120" text-anchor="middle">시즌 운영</text>
+</svg></figure><ul class="cal-legend" aria-hidden="true"><li><i class="sw s"></i>3~8월 · 수딩 선발</li><li><i class="sw i"></i>9~2월 · 인텐시브 바통</li></ul></div>
+      <div class="cal">
+        <div><div class="m">2026.11~2027.2</div><div class="t">입점 준비</div>상품 등록, 상세페이지·브랜드관 제작, 단독 구성 확정</div>
+        <div class="hl"><div class="m">3월 입점</div><div class="t">봄 시즌 오픈</div>무신사 뷰티 페스타 연계, 듀오 세트 단독 출시<br><span class="chip s">수딩 선발</span></div>
+        <div class="hl"><div class="m">4~5월</div><div class="t">시즌 교체소 팝업</div>메가스토어 성수, 러닝 크루 연계<br><span class="chip s">봄 러너 키트</span></div>
+        <div><div class="m">6~8월</div><div class="t">여름 · 시즌 교체 예고</div>수딩+선크림 루틴, 8월 무뷰페 비교 체험<br><span class="chip s">수딩</span></div>
+        <div class="hl"><div class="m">9~10월</div><div class="t">시즌 교체</div>수딩 구매자에게 인텐시브 쿠폰, 환절기 듀오 대용량<br><span class="chip i">인텐시브 바통</span></div>
+        <div><div class="m">11~12월</div><div class="t">겨울</div>겨울 산행 키트, 오인트 크림, 연말 선물 세트<br><span class="chip i">인텐시브</span></div>
+      </div>
+      <p class="note">2027년 무신사 행사 일정은 아직 발표되지 않아, 2026년 패턴(3·5월 뷰티 페스타, 8월 무뷰페)<sup><a href="#s14">14</a></sup>을 기준으로 가정했습니다.</p>
+    </div>
+
+    <div class="block">
+      <h3>4~5월 팝업: 제로이드 시즌 교체소 · 무신사 메가스토어 성수</h3>
+      <p style="margin:0 0 20px">뷰티층(2층)과 아웃도어층(4층)이 한 건물에 있어, 아웃도어 고객이 더마로 넘어오는 동선을 실제로 만들 수 있습니다. 메가스토어 성수 입점 브랜드는 입점 후 3주간 온라인 일평균 거래액이 약 35% 늘었습니다.<sup><a href="#s4">4</a></sup></p>
+      <p class="key" style="margin-bottom:24px">옷장 정리는 했나요? 피부도 할 차례입니다.</p>
+      <figure class="zone-fig"><svg class="ill zone-map" viewBox="0 0 480 330" role="img" aria-label="팝업 시즌 교체소 존 배치 개념도: 입구 옆 01 시즌 진단, 왼쪽 위 02 바람 터널, 오른쪽 위 03 러너 스테이션, 가운데 04 듀오 카운터, 오른쪽 05 포토 월">
+<path class="k" d="M205 286 H10 V10 H470 V286 H275"/>
+<g class="zm" data-zone="1"><rect class="zr" x="30" y="190" width="160" height="76" rx="3"/><text class="zn" x="44" y="220">01</text><text class="t" x="44" y="246">시즌 진단</text></g>
+<g class="zm z-i" data-zone="2"><rect class="zr" x="30" y="30" width="180" height="140" rx="3"/><text class="zn" x="44" y="60">02</text><text class="t" x="44" y="86">바람 터널</text>
+<path class="i" d="M108 162 V124 A31 31 0 0 1 170 124 V162 M122 162 V126 A17 17 0 0 1 156 126 V162"/></g>
+<g class="zm z-s" data-zone="3"><rect class="zr" x="240" y="30" width="210" height="110" rx="3"/><text class="zn" x="254" y="60">03</text><text class="t" x="254" y="86">러너 스테이션</text>
+<path class="s dash" d="M254 112 H436 M254 124 H436"/></g>
+<g class="zm z-d" data-zone="4"><rect class="zr" x="240" y="170" width="124" height="96" rx="3"/><path class="s thick" d="M244 172 H302"/><path class="i thick" d="M302 172 H360"/><text class="zn" x="254" y="204">04</text><text class="t" x="254" y="230">듀오 카운터</text></g>
+<g class="zm" data-zone="5"><rect class="zr" x="384" y="170" width="66" height="96" rx="3"/><path class="k thick" d="M446 176 V260"/><text class="zn" x="394" y="204">05</text><text class="t" x="394" y="230">포토 월</text></g>
+<path class="k" d="M240 318 V296 M232 304 L240 296 L248 304"/>
+<text class="t sm" x="256" y="316">입구</text>
+</svg><figcaption class="note">존 배치 개념도 (번호 = 아래 존 카드) · 실제 배치는 협의</figcaption></figure>
+      <div class="grid g3 zones">
+        <div class="card zone" data-zone="1"><h3>시즌 진단</h3><p>“오늘 당신의 피부는 몇 월인가요?” 피부 타입·활동·계절 문항으로 수딩·인텐시브·듀오를 추천합니다(사용감 추천이며 효능 판정이 아님).</p></div>
+        <div class="card zone" data-zone="2"><h3>바람 터널</h3><p>텐트·등산 소품 무드에서 인텐시브 크림과 미스트를 체험합니다. “바람은 피할 수 없어도, 루틴은 고를 수 있다.”</p></div>
+        <div class="card zone" data-zone="3"><h3>러너 스테이션</h3><p>러닝 크루 집결 거점. 포밍 클렌저 → 수딩 로션 → 데일리 선크림. 주말 아침 팝업 출발 런을 운영합니다.</p></div>
+        <div class="card zone" data-zone="4"><h3>듀오 카운터</h3><p>“봄엔 수딩, 겨울엔 인텐시브. 오늘 둘 다 데려가세요.” 팝업 한정 듀오 세트와 앱 쿠폰을 연동합니다.</p></div>
+        <div class="card zone" data-zone="5"><h3>포토 월</h3><p>#피부도시즌교체 인증 이벤트. 퇴장 때 9월 시즌 교체 쿠폰 카드를 나눠 가을 재방문으로 잇습니다.</p></div>
+        <div class="card zone invert"><h3>이후 상설 매장</h3><p>팝업 뒤 메가스토어 성수·무신사 뷰티 홍대 상설 입점 협의. ‘시즌 교체 매대’로 3~8월 수딩, 9~2월 인텐시브를 앞에 둡니다.</p></div>
+      </div>
+      <p class="note">러닝 크루 연계는 기존 사용 근거가 아니라 새로 만드는 접점입니다. 팝업 기간·규모·비용 분담은 협의 사항입니다.</p>
+    </div>
+
+    <div class="block">
+      <h3>무신사에 요청할 데이터 공유</h3>
+      <p style="margin:0">KPI를 함께 측정하려면 제로이드 구매자의 무신사 구매 이력(패션·스포츠 교차 구매), 연령대, 러닝·아웃도어 세그먼트, 검색량, 더모 코스메틱 카테고리 평균 전환율 공유가 필요합니다. 제공 범위는 협의합니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT IF -->
+<section id="whatif">
+  <div class="wrap">
+    <p class="eyebrow">04 · What if</p>
+    <span class="q">MD의 질문: 하면 무엇이 달라지는가?</span>
+    <h2>한 번 사면,<br>계절이 한 번 더 데려온다.</h2>
+    <p class="lead">듀오 세트는 객단가를, 시즌 교체는 재구매를 만듭니다. 아래 수치는 모두 가정에 기반한 <b>추정치</b>이며, 수수료가 협의 사항이라 마진이 아닌 <b>거래액 기준</b>입니다.</p>
+
+    <div class="grid g4">
+      <div class="card invert stat">
+        <div class="num">262명</div>
+        <div class="lbl">첫 구매 1,000명 중 12개월 내 재구매 <span class="est">(추정)</span></div>
+        <div class="so">북극성 지표 ‘2회 이상 구매 고객 수’의 근거. 목표: 첫 구매 고객의 25% 이상(도전 35%).</div>
+      </div>
+      <div class="card stat">
+        <div class="num">+34%</div>
+        <div class="lbl">객단가 24,800원 → 33,120원 <span class="est">(추정)</span></div>
+        <div class="so">주문 5건 중 1건이 듀오, 10건 중 1건이 기획세트일 때. 듀오 비중이 10%p 오를 때마다 약 2,500원 오릅니다.</div>
+      </div>
+      <div class="card stat">
+        <div class="num">1.5~2배</div>
+        <div class="lbl">시즌 교체 1회 시 연간 구매액 <span class="est">(추정)</span></div>
+        <div class="so">자기 계절 라인만 살 때보다 커집니다. 컨셉이 곧 거래액 산식입니다.</div>
+      </div>
+      <div class="card stat">
+        <div class="num">9.8일분</div>
+        <div class="lbl">팝업 후 4주 온라인 추가 거래액 <span class="est">(추정)</span></div>
+        <div class="so">팝업 후 4주 온라인 일평균 거래액 +35%만 달성해도 평소 일평균의 9.8일분이 더해집니다.</div>
+      </div>
+    </div>
+
+    <div class="grid g2 chart-row">
+      <figure class="chart-fig "><figcaption>객단가 변화 <span class="est">(추정)</span></figcaption><div class="chart-box" style="height:220px"><canvas data-chart="aov" role="img" aria-label="객단가(추정): 단품만 24,800원, 듀오 20% 29,760원, 듀오 20%와 기획세트 10% 33,120원"></canvas></div><div class="chart-data"><table><caption>객단가(추정): 단품만 24,800원, 듀오 20% 29,760원, 듀오 20%와 기획세트 10% 33,120원</caption><tbody><tr><th scope="row">단품만</th><td class="r">24,800원</td></tr><tr><th scope="row">듀오 20%</th><td class="r">29,760원</td></tr><tr><th scope="row">듀오 20% + 기획세트 10%</th><td class="r">33,120원</td></tr></tbody></table></div><p class="src">산식: output/리포트/기대효과-추정.md · 주문 5건 중 1건 듀오, 10건 중 1건 기획세트 가정</p></figure>
+    </div>
+
+    <div class="block">
+      <h3>페르소나별 신규 고객 1명의 연간 기대 가치 <span class="est">(추정, 무신사 거래액 기준)</span></h3>
+      <div class="bars" role="img" aria-label="신규 고객 1명의 연간 기대 가치: 환절기 민감러 59,467원, 봄 러너 39,827원, 겨울 산행러 35,477원. 1회 구매만 가정 시 평균 34,640원.">
+        <div class="bar-row"><span>환절기 민감러</span><div class="bar-track"><div class="bar-fill d" style="width:100%"></div></div><span class="bar-val">59,467원</span></div>
+        <div class="bar-row"><span>봄 러너</span><div class="bar-track"><div class="bar-fill s" style="width:67%"></div></div><span class="bar-val">39,827원</span></div>
+        <div class="bar-row"><span>겨울 산행러</span><div class="bar-track"><div class="bar-fill i" style="width:59.7%"></div></div><span class="bar-val">35,477원</span></div>
+        <div class="bar-row"><span>1회 구매만 (평균)</span><div class="bar-track"><div class="bar-fill m" style="width:58.3%"></div></div><span class="bar-val">34,640원</span></div>
+      </div>
+      <p style="margin-top:20px"><b>So what</b> · 첫 주문에 두 계절 분량을 담는 듀오 고객의 가치가 가장 큽니다. 겨울 산행러는 계속 쓰면 연간 구매액이 가장 크지만(141,400원, 정가 기준) 재구매 신호가 약해, 첫 겨울 뒤 3월 시즌 오픈 쿠폰으로 수딩으로 넘기는 것이 열쇠입니다.</p>
+      <p class="note"><a href="#persona">페르소나별 시나리오 가치(첫 구매만 → 보수 → 기본 → 낙관)는 01 Why의 페르소나에서 볼 수 있습니다 →</a></p>
+    </div>
+
+    <div class="block">
+      <h3>KPI</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>지표</th><th>정의</th><th>목표 <span class="est">(추정)</span></th></tr></thead>
+          <tbody>
+            <tr><td><b>북극성: 2회 이상 구매 고객 수</b></td><td>무신사 온·오프라인에서 제로이드를 2회 이상 산 고객</td><td>12개월 내 첫 구매 고객의 25% 이상(도전 35%), 월별 누적 증가</td></tr>
+            <tr><td>월 거래액 성장률</td><td>무신사 온라인 제로이드 거래액 전월 대비</td><td>+4.5% 이상(도전 +9.4%)</td></tr>
+            <tr><td>더모 코스메틱 순위</td><td>카테고리 판매 랭킹 내 최고 순위</td><td>6개월 Top 5, 12개월 Top 3</td></tr>
+            <tr><td>객단가</td><td>제로이드 포함 주문의 평균 결제 금액</td><td>33,000원 이상</td></tr>
+            <tr><td>듀오 구매 비중</td><td>제로이드 주문 중 계절 듀오 포함 주문</td><td>주문 기준 20%</td></tr>
+            <tr><td>시즌 교체 재구매율</td><td>3~8월 수딩 구매자 중 9~12월 인텐시브 구매자</td><td>15%(도전 25%)</td></tr>
+            <tr><td>교차 구매 비율</td><td>제로이드 첫 구매자 중 무신사 패션·스포츠 구매 이력 보유</td><td>무신사 뷰티 평균 83.1% 이상</td></tr>
+            <tr><td>팝업 온라인 파급</td><td>팝업 후 4주 온라인 일평균 거래액 ÷ 기준선 기간 일평균</td><td>+35% 이상(도전 +50%). 기준선 기간은 MD와 협의</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">거래액 절대 목표는 두지 않습니다. 무신사 뷰티·더마 거래액 절대값이 공개되지 않아, 성장률·순위·고객 수로 판정합니다.</p>
+    </div>
+
+    <div class="assume">
+      <b>주요 가정</b> · 가격은 올리브영 정가, 무신사 실결제 할인 20%. 일 사용량 크림 1.0ml, 로션·클렌저 1.5ml. 12개월 재구매 확률 봄 러너 30%, 겨울 산행러 15%, 환절기 민감러 30%(가중 평균 26%). 재구매자 시나리오 비중 보수 50%·기본 35%·낙관 15%. 첫 구매 고객 구성 35/25/40%. 팝업 14일·일 300명 방문·현장 전환 15%. 모든 가정은 입점 후 실데이터로 갱신합니다.
+    </div>
+  </div>
+</section>
+
+<!-- 한 장 요약 -->
+<section id="summary" class="alt">
+  <div class="wrap">
+    <p class="eyebrow">05 · One Page</p>
+    <h2>봄에 들어와, 겨울까지 남는 브랜드</h2>
+    <p class="lead">이 한 장만 기억하시면 됩니다.</p>
+
+    <div class="onepage">
+      <div class="head">
+        <h2>옷장만 바꾸지 말고, 크림도 바꾸세요.</h2>
+        <p style="margin:0">ZEROID 수딩 × 인텐시브 ‘계절 듀오’ · 2027년 3월 무신사뷰티 입점 제안</p>
+      </div>
+      <div class="cells">
+        <div>
+          <div class="lbl">WHY · 무신사의 숙제</div>
+          <ul>
+            <li>뷰티 첫 구매 83.1%가 패션 고객</li>
+            <li>더모 코스메틱 브랜드 16개</li>
+            <li>2030 러닝·등산 증가</li>
+            <li>→ 패션 고객을 시즌마다 뷰티로 다시 데려와야</li>
+          </ul>
+        </div>
+        <div>
+          <div class="lbl">WHAT · 제로이드의 답</div>
+          <ul>
+            <li>고객이 이미 계절마다 라인을 바꿔 씀</li>
+            <li>올리브영 검증: 평점 4.8, 리뷰 1만 4천여 건(인텐시브 크림)</li>
+            <li>피부과 기반 장벽 더마(MLE®·디펜사마이드™)</li>
+            <li>무신사 미입점</li>
+          </ul>
+        </div>
+        <div class="bridge">밖에 있는 시간이 길수록, 계절은 피부에 먼저 온다 (가정)</div>
+        <div>
+          <div class="lbl">HOW · 2027 시즌 운영</div>
+          <ul>
+            <li>3월 입점 · 봄 시즌 오픈(수딩 선발)</li>
+            <li>4~5월 메가스토어 성수 ‘시즌 교체소’</li>
+            <li>9~10월 시즌 교체(인텐시브 바통)</li>
+            <li>11~12월 겨울 산행 키트</li>
+          </ul>
+        </div>
+        <div>
+          <div class="lbl">WHAT IF · 무신사가 얻는 것 (추정)</div>
+          <ul>
+            <li>재구매가 첫 구매 거래액 +35%</li>
+            <li>객단가 +34%(듀오 세트)</li>
+            <li>더마 카테고리 17번째 브랜드</li>
+            <li>팝업 후 4주 온라인 +35% 목표</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 출처 -->
+<section id="sources">
+  <div class="wrap">
+    <p class="eyebrow">Sources</p>
+    <h2 style="font-size:28px">출처와 기준</h2>
+    <ol class="src">
+      <li id="s1">국내 더마 시장 규모·성장률(유로모니터 인용): 이데일리, 2026-09-02, https://en.edaily.co.kr/news/eda202609015621</li>
+      <li id="s2">올리브영 ‘어드밴스드 더마’ 신설: 업계 보도(2026년 봄, 기사별 3월·4월 표기 차이로 ‘봄’으로 표기)</li>
+      <li id="s3">스킨케어 내 더마 비중 17.1%(스킨케어 기준): 이데일리, 2026-09-02</li>
+      <li id="s4">무신사 뷰티 첫 구매 고객 83.1% 교차 구매, 메가스토어 성수 입점 브랜드 온라인 일평균 거래액 3주 +35%: 한국경제, 2026-09-16, https://www.hankyung.com/article/202609167182g · 뉴스토마토, 2026-09-30</li>
+      <li id="s5">무신사 더마 브랜드 거래액(2026.1~8, 전년 대비): 뉴스토마토, 2026-09-30</li>
+      <li id="s6">무신사 더모 코스메틱 16개 브랜드, 뷰티 2,188개 브랜드: 무신사 사이트 직접 확인(2026-10-30), https://www.musinsa.com/category/104020/goods</li>
+      <li id="s7">생활체육 참여율·등산 증가 폭: 문화체육관광부 국민생활체육조사(2025), 머니투데이 2026-01-19, https://www.mt.co.kr/sports/2026/01/19/2026011912100485038</li>
+      <li id="s8">무신사 ‘러닝’ 검색 +262%(2026.1.1~19): 뉴시스, 2026-02-20</li>
+      <li id="s9">무신사 2025 러닝화 판매 약 +83%: 헤럴드경제, 2025-12-30, https://www.heraldk.com/article/2025123017312862685</li>
+      <li id="s10">캠핑 이용자 523만 명(2021년 기준): 문화체육관광부·한국관광공사 자료 인용 보도</li>
+      <li id="s11">무신사 뷰티 홍대 오픈 3일 성과(2026.9.11~13): 언론 보도 종합(research/musinsa-beauty.md)</li>
+      <li id="s12">제로이드 브랜드·제품·채널: 제로이드 공식몰 https://www.zeroid.co.kr/web/index.asp, 올리브영 정가(2026-10-30), 네오팜 공시·보도(research/brand-product.md)</li>
+      <li id="s13">리뷰 분석: 올리브영 온라인몰 제로이드 9개 SKU 리뷰(2026-10-30 수집, 확장 표본 포함). 공식몰 리뷰는 정성 근거로만 사용(research/reviews/)</li>
+      <li id="s14">무신사 뷰티 페스타·무뷰페 2026 일정과 성과: 바이라인네트워크, 2026-08-25, https://byline.network/?p=9004111222616449</li>
+    </ol>
+    <p class="note">추정치 산식과 가정은 output/리포트/기대효과-추정.md, 페르소나-재구매-수익.md, 가정값-목록.md에 있습니다. 효능 표현은 공식 자료 범위 안에서만 썼습니다.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">CJ 올리브네트웍스 AX 부트캠프 과제 · 가상 시나리오로 작성한 입점 제안서입니다. 제로이드·무신사와 무관합니다. · 2026-10-30</div>
+</footer>
+
+<script>
+/* 모션 스크립트: 내용을 바꾸지 않는다. 카운트업은 끝나면 원래 문구를 그대로 되돌린다. */
+(function () {
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce || !('IntersectionObserver' in window)) return;
+  var root = document.documentElement;
+
+  // 1) 스크롤 등장 대상 (표지는 CSS 시즌 전환이 따로 있어 제외)
+  var sel = 'section .lead, section .key, section .card, section .duo > div, section .table-wrap, section .bars, section .assume, section ol.why li, section .onepage, section .block > h3';
+  var items = Array.prototype.slice.call(document.querySelectorAll(sel));
+  items.forEach(function (el) {
+    el.classList.add('rv');
+    var p = el.parentElement, sib = p ? Array.prototype.filter.call(p.children, function (c) { return c.matches(sel); }) : [];
+    el.style.setProperty('--d', Math.min(sib.indexOf(el), 5));
+  });
+
+  // 2) 캘린더
+  var cals = Array.prototype.slice.call(document.querySelectorAll('.cal'));
+  cals.forEach(function (c) { Array.prototype.forEach.call(c.children, function (m, i) { m.style.setProperty('--d', i); }); });
+
+  // 3) 막대: 목표 폭을 기억했다가 0에서 채운다
+  var fills = Array.prototype.slice.call(document.querySelectorAll('.bar-fill'));
+  fills.forEach(function (f, i) { f.dataset.w = f.style.width; f.style.width = '0'; f.style.setProperty('--d', i); });
+
+  // 4) 카운트업: 숫자 하나로 된 문구만 (예: 83.1%, +262%, 262명, 59,467원). 복합 문구는 건너뛴다.
+  var NUM = /^([+]?)(\d{1,3}(?:,\d{3})+|\d+)(\.\d+)?([^\d]*)$/;
+  var counters = Array.prototype.slice.call(document.querySelectorAll('.stat .num, .bar-val')).filter(function (el) {
+    return el.children.length === 0 && NUM.test(el.textContent.trim());
+  });
+
+  root.classList.add('motion');
+
+  function countUp(el) {
+    var orig = el.textContent, m = orig.trim().match(NUM);
+    if (!m) return;
+    var sign = m[1], intPart = m[2], dec = m[3] || '', suffix = m[4];
+    var comma = intPart.indexOf(',') > -1, decimals = dec ? dec.length - 1 : 0;
+    var target = parseFloat(intPart.replace(/,/g, '') + dec);
+    var dur = 1200, t0 = null;
+    function fmt(v) {
+      var s = v.toFixed(decimals), parts = s.split('.');
+      if (comma) parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+      return sign + parts.join('.') + suffix;
+    }
+    function step(t) {
+      if (t0 === null) t0 = t;
+      var k = Math.min((t - t0) / dur, 1), e = 1 - Math.pow(1 - k, 3);
+      el.textContent = k < 1 ? fmt(target * e) : orig;   // 마지막 프레임은 원문 그대로
+      if (k < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  var pending = [];
+  function reveal(el) {
+    var k = pending.indexOf(el);
+    if (k < 0) return;
+    pending.splice(k, 1);
+    io.unobserve(el);
+    if (el.classList.contains('rv') || el.classList.contains('cal')) el.classList.add('in');
+    if (el.classList.contains('bars')) {
+      el.querySelectorAll('.bar-fill').forEach(function (f) { f.style.width = f.dataset.w; });
+      el.querySelectorAll('.bar-val').forEach(countUp);
+    }
+    if (el.classList.contains('num')) countUp(el);
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) { if (en.isIntersecting) reveal(en.target); });
+  }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+
+  items.concat(cals).forEach(function (el) { pending.push(el); io.observe(el); });
+  counters.forEach(function (el) { if (!el.classList.contains('bar-val')) { pending.push(el); io.observe(el); } });
+
+  // 빠른 스크롤로 관찰 프레임을 건너뛴 요소(이미 화면 위로 지나간 요소)도 놓치지 않게 보정
+  var ticking = false;
+  window.addEventListener('scroll', function () {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () {
+      ticking = false;
+      var vh = window.innerHeight;
+      pending.slice().forEach(function (el) { if (el.getBoundingClientRect().top < vh * 0.92) reveal(el); });
+    });
+  }, { passive: true });
+  // 막대 그룹은 .rv 대상이기도 하므로 같은 관찰자에서 처리된다
+
+  // 인쇄할 때는 모든 요소를 끝 상태로
+  window.addEventListener('beforeprint', function () {
+    items.concat(cals).forEach(function (el) { el.classList.add('in'); });
+    fills.forEach(function (f) { f.style.width = f.dataset.w; });
+  });
+})();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script>
+/* 2차: 인터랙션 + 차트. 내용(문구·숫자)은 바꾸지 않는다. */
+(function () {
+  var doc = document.documentElement;
+  var mq = function (q) { return window.matchMedia ? window.matchMedia(q) : { matches: false, addEventListener: function () {} }; };
+  var reduce = mq('(prefers-reduced-motion: reduce)').matches;
+  var hover = mq('(hover: hover)').matches;
+  var fine = hover && mq('(pointer: fine)').matches;
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+
+  /* 1) 스크롤 진행 바 + 현재 섹션 표시 (움직임이 아니라 위치 표시라 reduced-motion에서도 유지) */
+  var prog = document.querySelector('nav.top .progress i');
+  var links = $$('nav.top a[href^="#"]');
+  var secs = links.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+  var tick = false;
+  function onScroll() {
+    tick = false;
+    var max = doc.scrollHeight - window.innerHeight;
+    if (prog) prog.style.setProperty('--p', max > 0 ? Math.min(window.scrollY / max, 1).toFixed(4) : 0);
+    var cur = -1;
+    secs.forEach(function (s, i) { if (s && s.getBoundingClientRect().top <= 120) cur = i; });
+    links.forEach(function (a, i) { if (i === cur) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current'); });
+  }
+  window.addEventListener('scroll', function () { if (!tick) { tick = true; requestAnimationFrame(onScroll); } }, { passive: true });
+  onScroll();
+
+  /* 2) 연결 하이라이트: 5WHY 목록 ↔ 흐름도, 존 카드 ↔ 배치도, 캘린더 월 ↔ 시즌 휠 */
+  function link(a, b) {
+    function on() { a.classList.add('on'); b.classList.add('on'); }
+    function off() { a.classList.remove('on'); b.classList.remove('on'); }
+    [a, b].forEach(function (el) {
+      el.addEventListener('mouseenter', on); el.addEventListener('mouseleave', off);
+      el.addEventListener('focusin', on); el.addEventListener('focusout', off);
+    });
+  }
+  var whyLi = $$('ol.why li'), wfs = $$('.why-flow .wf');
+  wfs.forEach(function (w, i) { if (whyLi[i]) link(w, whyLi[i]); });
+  $$('.zone[data-zone]').forEach(function (c) {
+    var m = document.querySelector('.zone-map .zm[data-zone="' + c.dataset.zone + '"]');
+    if (m) link(c, m);
+  });
+  var wheel = document.querySelector('.wheel');
+  var calMonths = [[11, 12, 1, 2], [3], [4, 5], [6, 7, 8], [9, 10], [11, 12]];
+  if (wheel) $$('.cal > div').forEach(function (cell, i) {
+    var ms = calMonths[i] || [];
+    function on() { wheel.classList.add('focus'); $$('.wm', wheel).forEach(function (g) { g.classList.toggle('on', ms.indexOf(+g.dataset.m) > -1); }); }
+    function off() { wheel.classList.remove('focus'); $$('.wm', wheel).forEach(function (g) { g.classList.remove('on'); }); }
+    cell.addEventListener('mouseenter', on); cell.addEventListener('mouseleave', off);
+  });
+
+  /* 3) 커서 추적: 정밀 포인터 + reduced-motion 아님 */
+  if (fine && !reduce) {
+    doc.classList.add('fx');
+    var active = null, lastE = null, raf = 0;
+    function resetTilt(el) {
+      if (!el.classList.contains('card') || el.classList.contains('persona')) return;
+      el.style.transition = 'transform .6s cubic-bezier(.2,.7,.2,1), opacity .6s ease-out';
+      el.style.transform = '';
+    }
+    function frame() {
+      raf = 0;
+      var e = lastE, t = e.target && e.target.closest ? e.target.closest('.card, .duo > div') : null;
+      if (active && active !== t) resetTilt(active);
+      active = t;
+      if (!t) return;
+      var r = t.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+      t.style.setProperty('--mx', (x * 100).toFixed(1) + '%');
+      t.style.setProperty('--my', (y * 100).toFixed(1) + '%');
+      if (t.classList.contains('card') && !t.classList.contains('persona')) {
+        t.style.transition = 'transform .15s ease-out, opacity .6s ease-out';
+        t.style.transform = 'perspective(900px) rotateX(' + ((0.5 - y) * 5).toFixed(2) + 'deg) rotateY(' + ((x - 0.5) * 6).toFixed(2) + 'deg)';
+      }
+    }
+    document.addEventListener('pointermove', function (e) { lastE = e; if (!raf) raf = requestAnimationFrame(frame); }, { passive: true });
+    document.addEventListener('pointerleave', function () { if (active) resetTilt(active); active = null; });
+
+    // 마그네틱 내비
+    links.forEach(function (a) {
+      a.addEventListener('pointermove', function (e) {
+        var r = a.getBoundingClientRect();
+        var dx = Math.max(-5, Math.min(5, (e.clientX - r.left - r.width / 2) * 0.3));
+        var dy = Math.max(-3, Math.min(3, (e.clientY - r.top - r.height / 2) * 0.3));
+        a.style.transform = 'translate(' + dx.toFixed(1) + 'px,' + dy.toFixed(1) + 'px)';
+      });
+      a.addEventListener('pointerleave', function () { a.style.transform = ''; });
+    });
+
+    // 표지 일러스트 패럴랙스
+    var cover = document.querySelector('.cover'), art = document.querySelector('.cover-art');
+    if (cover && art) {
+      cover.addEventListener('pointermove', function (e) {
+        art.style.setProperty('--px', ((e.clientX / window.innerWidth - 0.5) * 2).toFixed(3));
+        art.style.setProperty('--py', ((e.clientY / window.innerHeight - 0.5) * 2).toFixed(3));
+      });
+      cover.addEventListener('pointerleave', function () { art.style.setProperty('--px', 0); art.style.setProperty('--py', 0); });
+    }
+  }
+
+  /* 4) 차트 (Chart.js가 없으면 숫자 표가 그대로 보인다) */
+  var C = window.Chart;
+  if (!C) { doc.classList.add('no-chart'); return; }
+  doc.classList.add('has-chart');
+
+  function tok() {
+    var cs = getComputedStyle(doc), g = function (n) { return cs.getPropertyValue(n).trim(); };
+    return { ink: g('--ink'), soft: g('--ink-soft'), muted: g('--muted'), line: g('--line'), bg: g('--bg'),
+      s: g('--soothing'), i: g('--intensive'), est: g('--estimate'), font: getComputedStyle(document.body).fontFamily };
+  }
+  function alpha(hex, a) {
+    var m = hex.replace('#', ''); if (m.length === 3) m = m.replace(/(.)/g, '$1$1');
+    var n = parseInt(m, 16); return 'rgba(' + (n >> 16 & 255) + ',' + (n >> 8 & 255) + ',' + (n & 255) + ',' + a + ')';
+  }
+  function duoGrad(chart, t, a) {
+    var ar = chart.chartArea; if (!ar) return t.s;
+    var g = chart.ctx.createLinearGradient(ar.left, 0, ar.right, 0);
+    g.addColorStop(0, a ? alpha(t.s, a) : t.s); g.addColorStop(1, a ? alpha(t.i, a) : t.i); return g;
+  }
+  var won = function (v) { return v.toLocaleString('ko-KR') + '원'; };
+  var num = function (v) { return v.toLocaleString('ko-KR'); };
+
+  // 막대 끝 값 라벨
+  var valueLabels = { id: 'valueLabels', afterDatasetsDraw: function (chart, a, o) {
+    if (!o || !o.format) return;
+    var c = chart.ctx, horiz = chart.options.indexAxis === 'y';
+    c.save(); c.font = '700 12px ' + o.font; c.fillStyle = o.color;
+    chart.data.datasets.forEach(function (ds, di) {
+      var meta = chart.getDatasetMeta(di); if (meta.hidden || (o.only != null && o.only !== di)) return;
+      meta.data.forEach(function (el, j) {
+        var txt = o.format(ds.data[j], j);
+        if (horiz) { c.textAlign = 'left'; c.textBaseline = 'middle'; c.fillText(txt, el.x + 6, el.y); }
+        else { c.textAlign = 'center'; c.textBaseline = 'bottom'; c.fillText(txt, el.x, el.y - 4); }
+      });
+    });
+    c.restore();
+  } };
+  // 기대 가치 기준선
+  var refLine = { id: 'refLine', afterDatasetsDraw: function (chart, a, o) {
+    if (!o || o.value == null) return;
+    var s = chart.scales.x, ar = chart.chartArea, c = chart.ctx, x = s.getPixelForValue(o.value);
+    c.save(); c.strokeStyle = o.color; c.lineWidth = 1.5; c.setLineDash([4, 3]);
+    c.beginPath(); c.moveTo(x, ar.top - 2); c.lineTo(x, ar.bottom); c.stroke(); c.setLineDash([]);
+    c.fillStyle = o.color; c.font = '700 11px ' + o.font; c.textBaseline = 'bottom';
+    c.textAlign = 'left'; c.fillText(o.label, x + 4, ar.top - 2); c.restore();
+  } };
+  // 도넛 가운데 숫자
+  var center = { id: 'center', afterDraw: function (chart, a, o) {
+    if (!o || !o.text) return;
+    var el = chart.getDatasetMeta(0).data[0]; if (!el) return;
+    var c = chart.ctx; c.save(); c.font = '900 24px ' + o.font; c.fillStyle = o.color;
+    c.textAlign = 'center'; c.textBaseline = 'middle'; c.fillText(o.text, el.x, el.y); c.restore();
+  } };
+
+  function common(t, o) {
+    o = o || {};
+    var x = o.indexAxis === 'y';
+    return {
+      responsive: true, maintainAspectRatio: false, indexAxis: o.indexAxis || 'x',
+      animation: reduce ? false : { duration: 900, easing: 'easeOutCubic' },
+      layout: { padding: o.padding || { top: 18, right: x ? 58 : 4 } },
+      plugins: {
+        legend: { display: false },
+        tooltip: { callbacks: { label: function (ctx) { return (ctx.dataset.label ? ctx.dataset.label + ': ' : '') + o.fmt(ctx.raw); } } },
+        valueLabels: { format: o.fmt, color: t.ink, font: t.font, only: o.only }
+      },
+      scales: {
+        x: { max: x ? o.max : undefined, beginAtZero: true, grid: { display: x, color: t.line }, border: { color: t.soft },
+             ticks: x ? { color: t.soft, font: { size: 11 }, maxTicksLimit: 4, callback: o.tick || function (v) { return v; } }
+                      : { color: t.ink, font: { size: 12, weight: 700 } } },
+        y: { max: x ? undefined : o.max, beginAtZero: true, grid: { display: !x, color: t.line }, border: { color: t.soft },
+             ticks: { display: x, color: t.ink, font: { size: 12, weight: 700 } } }
+      }
+    };
+  }
+  function bar(t, labels, data, colors, o) {
+    return { type: 'bar', data: { labels: labels, datasets: [{ data: data, backgroundColor: colors, borderRadius: 0, maxBarThickness: 40 }] },
+      options: common(t, o), plugins: [valueLabels] };
+  }
+  function donut(t, label, v, text) {
+    return { type: 'doughnut',
+      data: { labels: [label, '그 외'], datasets: [{ data: [v, +(100 - v).toFixed(1)], backgroundColor: [t.s, t.line], borderColor: t.bg, borderWidth: 2 }] },
+      options: { responsive: true, maintainAspectRatio: false, cutout: '68%', animation: reduce ? false : { duration: 900 },
+        plugins: { legend: { position: 'bottom', labels: { color: t.soft, boxWidth: 12, font: { size: 12 } } },
+          tooltip: { callbacks: { label: function (c) { return c.label + ': ' + c.raw + '%'; } } },
+          center: { text: text, color: t.s, font: t.font } } },
+      plugins: [center] };
+  }
+  var man = function (v) { return v === 0 ? '0' : (v / 10000) + '만'; };
+  var PV = [
+    { first: 24000, cons: 41400, base: 84840, opt: 175744, ev: 39827, c: 's' },
+    { first: 25600, cons: 57920, base: 113120, opt: 152620, ev: 35477, c: 'i' },
+    { first: 49600, cons: 57040, base: 87600, opt: 155400, ev: 59467, c: 'd' }
+  ];
+  function pvColor(t, p, a) {
+    if (p.c === 'd') return function (ctx) { return duoGrad(ctx.chart, t, a); };
+    return a ? alpha(t[p.c], a) : t[p.c];
+  }
+
+  var DEF = {
+    market: function (t) { return bar(t, ['2020년', '2025년'], [7893, 15557], [t.muted, t.s],
+      { max: 19000, fmt: function (v) { return v === 15557 ? '1조 5,557억 원' : '7,893억 원'; } }); },
+    growth: function (t) { return bar(t, ['더마 스킨케어', '스킨케어 전체'], [15.7, 2.1], [t.s, t.muted],
+      { indexAxis: 'y', max: 20, fmt: function (v) { return v + '%'; }, tick: function (v) { return v + '%'; } }); },
+    msderma: function (t) { return bar(t, ['에스트라', '일리윤'], [193, 289], [t.s, t.s],
+      { indexAxis: 'y', max: 320, fmt: function (v) { return '+' + v + '%'; }, tick: function (v) { return v + '%'; } }); },
+    repurchase: function (t) { return bar(t, ['수딩', '인텐시브'], [19.7, 9.2], [t.s, t.i],
+      { max: 25, fmt: function (v) { return v + '%'; } }); },
+    season: function (t) { return donut(t, '계절·날씨 언급', 18.5, '18.5%'); },
+    store: function (t) { return donut(t, '매장 구매 리뷰', 28, '28%'); },
+    aov: function (t) { return bar(t, ['단품만', ['듀오 20%'], ['듀오 20%', '+ 기획세트 10%']], [24800, 29760, 33120],
+      [t.muted, alpha(t.i, 0.55), t.i], { max: 40000, fmt: won }); },
+    pvc: function (t) {
+      var o = common(t, { indexAxis: 'y', max: 130000, fmt: won, tick: man });
+      o.plugins.valueLabels = { format: num, color: t.ink, font: t.font };
+      return { type: 'bar', options: o, plugins: [valueLabels], data: {
+        labels: ['봄 러너', '겨울 산행러', '환절기 민감러'],
+        datasets: [
+          { label: '첫 구매만', data: PV.map(function (p) { return p.first; }), backgroundColor: t.muted, maxBarThickness: 18 },
+          { label: '신규 고객 1명 기대 가치', data: PV.map(function (p) { return p.ev; }), maxBarThickness: 18,
+            backgroundColor: function (ctx) { var p = PV[ctx.dataIndex]; var c = pvColor(t, p); return typeof c === 'function' ? c(ctx) : c; } },
+          { label: '기본 (시즌 교체 1회)', data: PV.map(function (p) { return p.base; }), maxBarThickness: 18, borderWidth: 2,
+            backgroundColor: 'transparent', borderColor: function (ctx) { var p = PV[ctx.dataIndex]; var c = pvColor(t, p); return typeof c === 'function' ? c(ctx) : c; } }
+        ] } };
+    }
+  };
+  PV.forEach(function (p, k) {
+    DEF['pv' + k] = function (t) {
+      var col = function (ctx) {
+        var i = ctx.dataIndex; if (i === 0) return t.muted;
+        var c = pvColor(t, p, i === 2 ? 0 : 0.45); return typeof c === 'function' ? c(ctx) : c;
+      };
+      var cfg = bar(t, ['첫 구매만', '보수', '기본', '낙관'], [p.first, p.cons, p.base, p.opt], col,
+        { indexAxis: 'y', max: 180000, fmt: num, tick: man, padding: { top: 20, right: 54 } });
+      cfg.options.plugins.tooltip.callbacks.label = function (ctx) { return '무신사 거래액 ' + won(ctx.raw) + ' (추정)'; };
+      cfg.options.plugins.refLine = { value: p.ev, label: '기대 가치 ' + num(p.ev), color: t.est, font: t.font };
+      cfg.plugins.push(refLine);
+      return cfg;
+    };
+  });
+
+  var made = {};
+  function make(cv) {
+    var id = cv.dataset.chart; if (!DEF[id] || made[id]) return;
+    try { made[id] = new C(cv, DEF[id](tok())); } catch (err) { var box = cv.parentNode; box.style.display = 'none'; var f = box.parentNode; if (f) f.classList.add('chart-off'); }
+  }
+  var canvases = $$('canvas[data-chart]');
+  if (reduce || !('IntersectionObserver' in window)) canvases.forEach(make);
+  else {
+    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { make(e.target); io.unobserve(e.target); } }); }, { threshold: 0.25 });
+    canvases.forEach(function (cv) { io.observe(cv); });
+    window.addEventListener('beforeprint', function () { canvases.forEach(make); });
+  }
+  // 다크/라이트 전환 시 팔레트 토큰을 다시 읽어 그린다
+  var dark = mq('(prefers-color-scheme: dark)');
+  var redraw = function () {
+    Object.keys(made).forEach(function (id) {
+      var cv = made[id].canvas; made[id].destroy(); delete made[id];
+      var cfg = DEF[id](tok()); cfg.options.animation = false; made[id] = new C(cv, cfg);
+    });
+  };
+  if (dark.addEventListener) dark.addEventListener('change', redraw); else if (dark.addListener) dark.addListener(redraw);
+})();
+</script>
+</body>
+</html>

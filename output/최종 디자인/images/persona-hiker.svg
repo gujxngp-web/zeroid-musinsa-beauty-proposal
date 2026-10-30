@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 112" role="img" aria-label="겨울 산행러: 배낭을 메고 산을 오르는 여성 라인 아이콘"><title>겨울 산행러: 배낭을 메고 산을 오르는 여성 라인 아이콘</title><style>
+.k,.s,.i{fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.k{stroke:#000}.s{stroke:#0064d4}.i{stroke:#4d7508}.sf{fill:#0064d4}.if{fill:#4d7508}
+.thick{stroke-width:5}.dash{stroke-dasharray:6 6}.zr{fill:none;stroke:#000;stroke-width:1.5}
+.z-s .zr{stroke:#0064d4}.z-i .zr{stroke:#4d7508}
+text{font-family:"Pretendard Variable",Pretendard,"Noto Sans KR",sans-serif;fill:#000}
+.t{font-size:15px;font-weight:700}.sm{font-size:12px}.big{font-size:26px;font-weight:900}
+.zn{font-size:20px;font-weight:900}.on{fill:#fff;font-size:11px;font-weight:700}
+.ts{fill:#0064d4}.ti{fill:#4d7508}
+</style>
+<path class="i" d="M60 100 L84 64 L94 78 L102 68 L118 100"/>
+<path class="i" d="M64 30 H78 Q84 30 84 24 M68 40 H88"/>
+<circle class="k" cx="40" cy="24" r="9"/>
+<path class="k" d="M32 20 Q29 34 36 40"/>
+<rect class="i" x="22" y="34" width="12" height="22" rx="4"/>
+<path class="k" d="M40 33 L42 64 M41 42 L54 52"/>
+<g class="pole"><path class="k" d="M56 38 L52 100"/></g>
+<path class="k" d="M42 64 L52 80 L54 98 M42 64 L34 82 L30 98"/>
+<path class="k" d="M8 100 H116"/>
+<g class="snow"><path class="i" d="M100 12 V32 M91.3 17 L108.7 27 M91.3 27 L108.7 17"/></g>
+</svg>

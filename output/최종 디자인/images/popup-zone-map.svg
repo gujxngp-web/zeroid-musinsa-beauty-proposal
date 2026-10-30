@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 330" role="img" aria-label="팝업 시즌 교체소 존 배치 개념도: 입구 옆 01 시즌 진단, 왼쪽 위 02 바람 터널, 오른쪽 위 03 러너 스테이션, 가운데 04 듀오 카운터, 오른쪽 05 포토 월"><title>팝업 시즌 교체소 존 배치 개념도: 입구 옆 01 시즌 진단, 왼쪽 위 02 바람 터널, 오른쪽 위 03 러너 스테이션, 가운데 04 듀오 카운터, 오른쪽 05 포토 월</title><style>
+.k,.s,.i{fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.k{stroke:#000}.s{stroke:#0064d4}.i{stroke:#4d7508}.sf{fill:#0064d4}.if{fill:#4d7508}
+.thick{stroke-width:5}.dash{stroke-dasharray:6 6}.zr{fill:none;stroke:#000;stroke-width:1.5}
+.z-s .zr{stroke:#0064d4}.z-i .zr{stroke:#4d7508}
+text{font-family:"Pretendard Variable",Pretendard,"Noto Sans KR",sans-serif;fill:#000}
+.t{font-size:15px;font-weight:700}.sm{font-size:12px}.big{font-size:26px;font-weight:900}
+.zn{font-size:20px;font-weight:900}.on{fill:#fff;font-size:11px;font-weight:700}
+.ts{fill:#0064d4}.ti{fill:#4d7508}
+</style>
+<path class="k" d="M205 286 H10 V10 H470 V286 H275"/>
+<g class="zm" data-zone="1"><rect class="zr" x="30" y="190" width="160" height="76" rx="3"/><text class="zn" x="44" y="220">01</text><text class="t" x="44" y="246">시즌 진단</text></g>
+<g class="zm z-i" data-zone="2"><rect class="zr" x="30" y="30" width="180" height="140" rx="3"/><text class="zn" x="44" y="60">02</text><text class="t" x="44" y="86">바람 터널</text>
+<path class="i" d="M108 162 V124 A31 31 0 0 1 170 124 V162 M122 162 V126 A17 17 0 0 1 156 126 V162"/></g>
+<g class="zm z-s" data-zone="3"><rect class="zr" x="240" y="30" width="210" height="110" rx="3"/><text class="zn" x="254" y="60">03</text><text class="t" x="254" y="86">러너 스테이션</text>
+<path class="s dash" d="M254 112 H436 M254 124 H436"/></g>
+<g class="zm z-d" data-zone="4"><rect class="zr" x="240" y="170" width="124" height="96" rx="3"/><path class="s thick" d="M244 172 H302"/><path class="i thick" d="M302 172 H360"/><text class="zn" x="254" y="204">04</text><text class="t" x="254" y="230">듀오 카운터</text></g>
+<g class="zm" data-zone="5"><rect class="zr" x="384" y="170" width="66" height="96" rx="3"/><path class="k thick" d="M446 176 V260"/><text class="zn" x="394" y="204">05</text><text class="t" x="394" y="230">포토 월</text></g>
+<path class="k" d="M240 318 V296 M232 304 L240 296 L248 304"/>
+<text class="t sm" x="256" y="316">입구</text>
+</svg>
